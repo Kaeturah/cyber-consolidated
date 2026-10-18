@@ -1,0 +1,1 @@
+{% assign rt_words = include.text | strip_html | number_of_words %}{% assign rt_mins = rt_words | plus: 199 | divided_by: 200 %}{{ rt_mins }} min read

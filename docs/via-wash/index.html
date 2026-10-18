@@ -1,0 +1,73 @@
+---
+layout: default
+title: Via Wash
+description: The IT behind Via Wash, a laundry pickup and delivery business in development, from its Microsoft foundation to incident response.
+nav: via-wash
+---
+{% assign chapters = site.via_wash | sort: "order" %}
+{% assign total = chapters | size %}
+{% assign done_a = chapters | where: "status", "Documented" | size %}
+{% assign done_b = chapters | where: "status", "Needs validation" | size %}
+{% assign written = done_a | plus: done_b %}
+
+<header class="page headline">
+  <div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><span aria-current="page">Via Wash</span></li>
+      </ol>
+    </nav>
+    <p class="kicker">The series</p>
+    <h1>Via Wash</h1>
+  </div>
+  <div>
+    <p class="dek">The IT behind a business in the making: how its people, devices, data and services are brought under control, one stage at a time.</p>
+    <p class="byline"><span>By {{ site.author }}</span><span>{{ total }} chapters</span><span>{{ written }} written so far</span></p>
+  </div>
+</header>
+
+<div class="prose">
+  <h2>What this series is</h2>
+  <p>Via Wash is a laundry and dry-cleaning pickup and delivery business in development, starting in London. Its customer app was already being built before this project started, so the business isn’t invented for the exercise. Its IT, though, is designed and tested in a Microsoft test environment first. Nothing here is a live production system yet.</p>
+  <p>The environment doesn’t get built all at once. Devices can’t be trusted until we know who uses them. Activity can’t be judged until we know what normal looks like. And an incident can’t be investigated properly in an environment nobody understands. So each stage gives the next something to stand on.</p>
+  <p>Read the chapters in order to follow the build, or jump to the one you need. Every chapter says plainly when it was written and how long it takes to read, and the ones still to come are marked as not started.</p>
+</div>
+
+<section class="page section section--last" aria-labelledby="route-title">
+  <div class="section-head">
+    <div>
+      <p class="label">The route</p>
+      <h2 id="route-title">Where the build stands</h2>
+    </div>
+  </div>
+  {% include build-path.html %}
+</section>
+
+<section class="page contents" aria-labelledby="contents-title">
+  <h2 id="contents-title" class="visually-hidden">Contents</h2>
+  {% assign current_part = "" %}
+  {% for c in chapters %}
+    {% if c.part != current_part %}
+      {% unless forloop.first %}</ol></div>{% endunless %}
+      <div class="part">
+        <div class="part-head">
+          <p class="kicker">{{ c.part }}</p>
+          {% if c.part_intro %}<p>{{ c.part_intro }}</p>{% endif %}
+        </div>
+        <ol class="chapter-list">
+      {% assign current_part = c.part %}
+    {% endif %}
+        <li class="chapter-row{% if c.status == 'Documented' or c.status == 'Needs validation' %} is-done{% endif %}{% if c.current %} is-current{% endif %}">
+          <a href="{{ c.url | relative_url }}">
+            <span class="chapter-num" aria-hidden="true">{% if c.order < 10 %}0{% endif %}{{ c.order }}</span>
+            <span>
+              <span class="chapter-title"><span class="visually-hidden">Chapter {{ c.order }}: </span>{{ c.title }}</span>
+              <span class="chapter-dek">{{ c.summary }}</span>
+            </span>
+            <span class="chapter-state">{% include progress.html doc=c %}<br>{% include read-time.html text=c.content %}</span>
+          </a>
+        </li>
+    {% if forloop.last %}</ol></div>{% endif %}
+  {% endfor %}
+</section>

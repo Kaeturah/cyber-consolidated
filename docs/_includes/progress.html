@@ -1,0 +1,1 @@
+{% assign p = include.doc %}{% if p.status == "Documented" %}Written {{ p.updated | date: "%-d %b %Y" }}{% elsif p.status == "Needs validation" %}Written {{ p.updated | date: "%-d %b %Y" }}, under review{% elsif p.status == "In progress" %}Under way{% elsif p.current %}Up next{% else %}Not started{% endif %}

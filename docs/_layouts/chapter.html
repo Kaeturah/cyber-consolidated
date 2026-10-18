@@ -1,0 +1,50 @@
+---
+layout: default
+---
+{% assign chapters = site.via_wash | sort: "order" %}
+{% assign total = chapters | size %}
+{% for c in chapters %}{% if c.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
+{% assign prev_idx = idx | minus: 1 %}
+{% assign next_idx = idx | plus: 1 %}
+{% if idx > 0 %}{% assign prev = chapters[prev_idx] %}{% endif %}
+{% assign next = chapters[next_idx] %}
+
+<article>
+  <header class="page headline">
+    <div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/via-wash/' | relative_url }}">Via Wash</a></li>
+          <li><span aria-current="page">{{ page.title }}</span></li>
+        </ol>
+      </nav>
+      <p class="kicker">Via Wash · {{ page.part }} · Chapter {{ page.order }} of {{ total }}</p>
+      <h1>{{ page.headline | default: page.title }}</h1>
+    </div>
+    <div>
+      <p class="dek">{{ page.summary }}</p>
+      <p class="byline"><span>By {{ site.author }}</span><span>{% include progress.html doc=page %}</span><span>{% include read-time.html text=content %}</span></p>
+    </div>
+  </header>
+
+  <div class="prose">
+{{ content }}
+  </div>
+
+  <div class="measure">
+    <nav class="pager" aria-label="Chapter navigation">
+      {% if prev %}<a class="prev" href="{{ prev.url | relative_url }}" rel="prev"><span class="label">Previous chapter</span><span class="pager-title">{{ prev.title }}</span></a>{% endif %}
+      {% if next %}<a class="next" href="{{ next.url | relative_url }}" rel="next"><span class="label">Next chapter</span><span class="pager-title">{{ next.title }}</span></a>{% endif %}
+    </nav>
+
+    <nav class="series-mini" aria-labelledby="series-heading">
+      <p class="label" id="series-heading">The Via Wash series</p>
+      <ol>
+        {% for c in chapters %}
+        <li><a href="{{ c.url | relative_url }}"{% if c.url == page.url %} aria-current="page"{% endif %}><span class="n">{{ c.order }}</span><span>{{ c.title }}</span></a></li>
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
+</article>

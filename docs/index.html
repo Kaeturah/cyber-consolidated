@@ -1,0 +1,85 @@
+---
+layout: default
+title: Cyber Consolidated
+description: IT, identity, cloud and security projects, built for real businesses and documented step by step with screenshots.
+---
+{% assign chapters = site.via_wash | sort: "order" %}
+{% assign total = chapters | size %}
+{% assign done_a = chapters | where: "status", "Documented" | size %}
+{% assign done_b = chapters | where: "status", "Needs validation" | size %}
+{% assign written = done_a | plus: done_b %}
+{% assign foundation = chapters | where: "part", "Foundation" %}
+
+<section class="page lead" aria-labelledby="lead-title">
+  <div class="lead-story">
+    <p class="kicker">Via Wash · The series</p>
+    <h1 id="lead-title">Building the IT for a real business, one chapter at a time.</h1>
+    <p class="dek">Via Wash is a laundry pickup and delivery business in development. This series follows its IT from an empty Microsoft environment to incident response, with screenshots for every step.</p>
+    <p class="byline"><span>By {{ site.author }}</span><span>{{ total }} chapters</span><span>{{ written }} written so far</span></p>
+    <a class="more" href="{{ '/via-wash/welcome/' | relative_url }}">Start with chapter 1</a>
+    &nbsp;&nbsp;&nbsp;
+    <a class="more" href="{{ '/via-wash/' | relative_url }}">See every chapter</a>
+  </div>
+
+  <aside class="latest" aria-labelledby="latest-title">
+    <p class="label" id="latest-title">Latest from the journal</p>
+    <ol class="latest-list">
+      {% for post in site.posts limit:3 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          <time class="latest-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B %Y" }}</time>
+          <span class="latest-title">{{ post.title }}</span>
+          <span class="latest-summary">{{ post.summary }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+    <a class="more" href="{{ '/journal/' | relative_url }}">All journal entries</a>
+  </aside>
+</section>
+
+<section class="page lead-figure" aria-label="From the evidence">
+  {% include evidence.html label="From chapter 6" title="MX and SPF records published at the registrar, the night the business mailbox went live." where="NameSilo · DNS records" source="Screenshot 2026-10-17 015435.png" %}
+  <p class="lead-figure-link"><a class="more" href="{{ '/via-wash/foundation/domain-and-business-email/' | relative_url }}">Read “The mailbox works. DKIM doesn’t, yet.”</a></p>
+</section>
+
+<section class="page section" aria-labelledby="route-title">
+  <div class="section-head">
+    <div>
+      <p class="label">The route</p>
+      <h2 id="route-title">Six stages, each built on the last</h2>
+    </div>
+    <a class="more" href="{{ '/via-wash/what-are-we-building/' | relative_url }}">Why this order</a>
+  </div>
+  {% include build-path.html %}
+</section>
+
+<section class="page section" aria-labelledby="foundation-title">
+  <div class="section-head">
+    <div>
+      <p class="label">Read first</p>
+      <h2 id="foundation-title">The foundation</h2>
+    </div>
+  </div>
+  <div class="trio">
+    {% for c in foundation %}
+    <a class="story" href="{{ c.url | relative_url }}">
+      <p class="kicker">Chapter {{ c.order }}</p>
+      <h3>{{ c.headline | default: c.title }}</h3>
+      <p>{{ c.summary }}</p>
+      <p class="byline"><span>{% include progress.html doc=c %}</span><span>{% include read-time.html text=c.content %}</span></p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="page section section--last about-strip" aria-labelledby="about-title">
+  <div>
+    <p class="label">Who writes this</p>
+    <h2 id="about-title">Written by {{ site.author }}</h2>
+  </div>
+  <div>
+    <p>I learn by building real things. Each project here starts with a business problem, and each chapter shows what I decided, what I configured, how I tested it and what the screenshots do and don’t prove.</p>
+    <p><a class="more" href="{{ '/about/' | relative_url }}">More about me and how I work</a>&nbsp;&nbsp;&nbsp;<a class="more" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+  </div>
+</section>

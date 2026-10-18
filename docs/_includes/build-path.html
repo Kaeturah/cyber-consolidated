@@ -1,0 +1,19 @@
+{% assign route_chapters = site.via_wash | sort: "order" %}
+<ol class="route" aria-label="Via Wash build route">
+  <li class="is-done">
+    <a href="{{ '/via-wash/foundation/microsoft-365-e5-trial/' | relative_url }}">
+      <span class="route-num">00</span>
+      <span class="route-name">Foundation</span>
+      <span class="route-state">Written</span>
+    </a>
+  </li>
+  {% for c in route_chapters %}{% if c.stage %}
+  <li class="{% if c.status == 'Documented' %}is-done{% else %}is-todo{% endif %}{% if c.current %} is-current{% endif %}">
+    <a href="{{ c.url | relative_url }}">
+      <span class="route-num">0{{ c.stage }}</span>
+      <span class="route-name">{{ c.short }}</span>
+      <span class="route-state">{% include progress.html doc=c %}</span>
+    </a>
+  </li>
+  {% endif %}{% endfor %}
+</ol>

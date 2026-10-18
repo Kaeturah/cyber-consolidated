@@ -1,0 +1,61 @@
+# Cyber Consolidated — site settings
+# GitHub Pages builds this folder (/docs on the master branch) with Jekyll.
+# You normally only need to edit content files, not this one.
+
+title: Cyber Consolidated
+tagline: IT, identity, cloud and security, documented step by step
+description: >-
+  A technical portfolio of IT support, identity, cloud and security projects,
+  documented as they are built, with evidence for every claim.
+author: Franklin
+email: franklin@cyber-consolidated.com
+github: Kaeturah
+url: "https://cyber-consolidated.com"
+baseurl: ""
+lang: en-GB
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Journal updates live in _posts as YYYY-MM-DD-title.md
+permalink: /journal/:year/:month/:title/
+
+feed:
+  path: feed.xml
+
+# Each project series is a collection. Chapters are ordered by filename (01-, 02-, ...).
+collections:
+  via_wash:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      nav: journal
+  - scope:
+      path: ""
+      type: via_wash
+    values:
+      layout: chapter
+      project: via-wash
+      nav: via-wash
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+exclude:
+  - _legacy
+  - _templates
+  - README.md

@@ -1,0 +1,12 @@
+<header class="masthead">
+  <div class="page masthead-inner">
+    <a class="wordmark" href="{{ '/' | relative_url }}">Cyber Consolidated</a>
+    <nav aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="{{ '/via-wash/' | relative_url }}"{% if page.nav == "via-wash" %} aria-current="page"{% endif %}>Via Wash</a></li>
+        <li><a href="{{ '/journal/' | relative_url }}"{% if page.nav == "journal" %} aria-current="page"{% endif %}>Journal</a></li>
+        <li><a href="{{ '/about/' | relative_url }}"{% if page.nav == "about" %} aria-current="page"{% endif %}>About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<article>
+  <header class="page headline headline--compact">
+    <div>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/journal/' | relative_url }}">Journal</a></li>
+          <li><span aria-current="page">{{ page.title }}</span></li>
+        </ol>
+      </nav>
+      <p class="kicker">Journal{% if page.project == "via-wash" %} · Via Wash{% endif %}</p>
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div>
+      {% if page.summary %}<p class="dek">{{ page.summary }}</p>{% endif %}
+      <p class="byline"><span>By {{ site.author }}</span><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%-d %B %Y" }}</time><span>{% include read-time.html text=content %}</span></p>
+      {% if page.tags.size > 0 %}<ul class="tag-list" aria-label="Topics">{% for t in page.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+    </div>
+  </header>
+
+  <div class="prose">
+{{ content }}
+  </div>
+
+  <div class="measure">
+    {% if page.related %}
+    <p class="related"><span class="label">The full write-up</span><br><a class="more" href="{{ page.related | relative_url }}">{{ page.related_title }}</a></p>
+    {% endif %}
+    <nav class="pager" aria-label="Journal navigation">
+      {% if page.previous %}<a class="prev" href="{{ page.previous.url | relative_url }}" rel="prev"><span class="label">Earlier</span><span class="pager-title">{{ page.previous.title }}</span></a>{% endif %}
+      {% if page.next %}<a class="next" href="{{ page.next.url | relative_url }}" rel="next"><span class="label">Later</span><span class="pager-title">{{ page.next.title }}</span></a>{% endif %}
+    </nav>
+  </div>
+</article>

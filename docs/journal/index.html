@@ -1,0 +1,38 @@
+---
+layout: default
+title: Journal
+description: Dated notes on what was built, studied and fixed across Cyber Consolidated projects.
+nav: journal
+---
+<header class="page headline headline--compact">
+  <div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><span aria-current="page">Journal</span></li>
+      </ol>
+    </nav>
+    <p class="kicker">{{ site.posts | size }} entries</p>
+    <h1>Journal</h1>
+  </div>
+  <div>
+    <p class="dek">Short, dated notes on what was built, studied or fixed, written as it happens. The full write-ups live in the chapters.</p>
+    <p class="byline"><a href="{{ '/feed.xml' | relative_url }}">Follow with RSS</a></p>
+  </div>
+</header>
+
+<section class="page section section--last">
+  <ol class="journal-list">
+    {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">
+        <time class="latest-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B %Y" }}</time>
+        <span>
+          <span class="latest-title">{{ post.title }}</span>
+          <span class="latest-summary">{{ post.summary }}</span>
+        </span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

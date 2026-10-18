@@ -1,0 +1,23 @@
+<footer class="site-footer">
+  <div class="page">
+    <div class="footer-grid">
+      <div>
+        <a class="wordmark" href="{{ '/' | relative_url }}">Cyber Consolidated</a>
+        <p class="footer-text">IT, identity, cloud and security projects, built for real businesses and written up step by step, with the screenshots to show for it.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="{{ '/via-wash/' | relative_url }}">Via Wash</a></li>
+          <li><a href="{{ '/journal/' | relative_url }}">Journal</a></li>
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/feed.xml' | relative_url }}">Follow updates (RSS)</a></li>
+        </ul>
+      </nav>
+      <ul class="footer-links">
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><a href="https://github.com/{{ site.github }}">GitHub</a></li>
+      </ul>
+    </div>
+    <p class="footer-base">© {{ site.time | date: "%Y" }} Cyber Consolidated</p>
+  </div>
+</footer>
