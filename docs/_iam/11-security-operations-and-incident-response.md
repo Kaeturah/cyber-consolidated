@@ -2,13 +2,13 @@
 title: Security operations and incident response
 headline: "When something goes wrong."
 short: Incident response
-order: 12
+order: 11
 stage: 6
 part: Build stages
 status: Planned
 summary: Bringing every stage together to investigate, contain and learn from simulated incidents.
 updated: 2026-10-18
-permalink: /via-wash/security-operations-and-incident-response/
+permalink: /identity-before-detection/security-operations-and-incident-response/
 ---
 
 {% include callout.html title="Not started yet" text="No incident-response capability is claimed. Incidents in this chapter will be safe simulations, clearly labelled as such." %}

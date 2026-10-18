@@ -1,0 +1,18 @@
+{% assign plist = site.pages | where: "layout", "project" | sort: "order" %}
+<ol class="project-list">
+  {% for p in plist %}
+  {% assign p_chapters = site[p.collection] %}
+  {% assign p_total = p_chapters | size %}
+  {% assign p_a = p_chapters | where: "status", "Documented" | size %}
+  {% assign p_b = p_chapters | where: "status", "Needs validation" | size %}
+  {% assign p_written = p_a | plus: p_b %}
+  <li>
+    <a class="project-card" href="{{ p.url | relative_url }}">
+      <span class="kicker">Project {{ forloop.index }}{% if p.topic %} · {{ p.topic }}{% endif %}</span>
+      <span class="project-title">{{ p.title }}</span>
+      <span class="project-summary">{{ p.summary }}</span>
+      <span class="byline"><span>{{ p_total }} chapters</span><span>{{ p_written }} written so far</span></span>
+    </a>
+  </li>
+  {% endfor %}
+</ol>

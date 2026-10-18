@@ -2,13 +2,13 @@
 title: IT support and operations
 headline: "Technology only works if people can get help."
 short: IT support
-order: 13
+order: 12
 part: Across the business
 part_intro: Work that runs alongside every stage — supporting the people who use the technology, and securing the app customers rely on.
 status: Planned
 summary: How Via Wash’s staff get help, request access and get devices, and how changes are recorded so the environment stays understandable.
 updated: 2026-10-18
-permalink: /via-wash/it-support-and-operations/
+permalink: /identity-before-detection/it-support-and-operations/
 ---
 
 {% include callout.html title="Not started yet" text="No ticketing system or operational process exists yet. This chapter reserves a place for them, and each will be documented once it is actually set up and used." %}

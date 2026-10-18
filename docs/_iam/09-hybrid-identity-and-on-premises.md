@@ -2,13 +2,13 @@
 title: Hybrid identity and on-premises infrastructure
 headline: "Where the cloud meets the server room."
 short: Hybrid identity
-order: 10
+order: 9
 stage: 4
 part: Build stages
 status: Planned
 summary: A small test Active Directory domain, and how traditional infrastructure and cloud identity meet.
 updated: 2026-10-18
-permalink: /via-wash/hybrid-identity-and-on-premises/
+permalink: /identity-before-detection/hybrid-identity-and-on-premises/
 ---
 
 {% include callout.html title="Not started yet" text="No on-premises infrastructure or synchronisation is claimed. This chapter will record what the lab could realistically support, what was built, and what stayed as a documented design." %}
@@ -19,7 +19,7 @@ Many organisations still run traditional servers, with user accounts managed in 
 
 ## What it depends on
 
-- The identity design from [stage 1]({{ '/via-wash/identity-and-access/' | relative_url }}), so that on-premises accounts and groups mirror the same departments.
+- The identity design from [stage 1]({{ '/identity-before-detection/identity-and-access/' | relative_url }}), so that on-premises accounts and groups mirror the same departments.
 - Enough lab capacity to run a Windows Server virtual machine, ideally alongside a client machine.
 
 ## What it will cover

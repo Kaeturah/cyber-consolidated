@@ -1,10 +1,10 @@
 ---
 title: A domain, a mailbox and a first test email
 summary: cyber-consolidated.com now has business email. Outbound delivery works; DKIM turned out to need a closer look.
-project: via-wash
+project: domain-and-email
 tags: [Foundation, Email, DNS]
-related: /via-wash/foundation/domain-and-business-email/
-related_title: Domain and business email
+related: /domain-and-email/
+related_title: Domain and Business Email
 ---
 
 The domain was already serving this site from GitHub Pages. Today it got an email identity too.

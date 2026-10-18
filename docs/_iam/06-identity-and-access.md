@@ -2,7 +2,7 @@
 title: Identity and access
 headline: "Everything starts with who people are."
 short: Identity and access
-order: 7
+order: 6
 stage: 1
 current: true
 part: Build stages
@@ -11,7 +11,7 @@ status: Planned
 status_note: Next up. This chapter will be written as the work happens.
 summary: Deciding who Via Wash’s people are, what each of them should reach, and how access changes when people join, move and leave.
 updated: 2026-10-18
-permalink: /via-wash/identity-and-access/
+permalink: /identity-before-detection/identity-and-access/
 ---
 
 {% include callout.html title="Not started yet" text="This chapter sets out the plan for stage 1. It will be rewritten with real configuration, test results and evidence as the work happens." %}
@@ -24,8 +24,8 @@ None of those questions can be answered until the identities exist and are organ
 
 ## What it depends on
 
-- The [Microsoft 365 E5 test environment]({{ '/via-wash/foundation/microsoft-365-e5-trial/' | relative_url }}), which provides Microsoft Entra ID.
-- The [company profile]({{ '/via-wash/company-profile/' | relative_url }}): six departments and the functions inside IT.
+- The [Microsoft 365 E5 test environment]({{ '/identity-before-detection/microsoft-365-e5-trial/' | relative_url }}), which provides Microsoft Entra ID.
+- The [company profile]({{ '/identity-before-detection/company-profile/' | relative_url }}): six departments and the functions inside IT.
 
 ## What it will cover
 

@@ -8,7 +8,7 @@ status: Documented
 status_note: Admin centre access documented. Enrolment and device management not yet demonstrated.
 summary: A first look at device management before anything is enrolled or configured, recording exactly where it stands.
 updated: 2026-10-18
-permalink: /via-wash/foundation/microsoft-intune/
+permalink: /identity-before-detection/microsoft-intune/
 ---
 
 ## Why Intune is part of Via Wash
@@ -63,4 +63,4 @@ These are genuine screenshots from the readiness check. They will be added once 
 3. Enrol a suitable test device when ready, then record what actually happened.
 4. Document compliance, configuration and endpoint-security work only after the settings have been applied and validated.
 
-This work continues in stage 2, [endpoint and device management]({{ '/via-wash/endpoint-and-device-management/' | relative_url }}).
+This work continues in stage 2, [endpoint and device management]({{ '/identity-before-detection/endpoint-and-device-management/' | relative_url }}).

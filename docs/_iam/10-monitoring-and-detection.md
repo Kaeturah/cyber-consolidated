@@ -2,13 +2,13 @@
 title: Monitoring and detection
 headline: "Turning a stream of activity into signals."
 short: Monitoring
-order: 11
+order: 10
 stage: 5
 part: Build stages
 status: Planned
 summary: Choosing the logs that matter, writing detections, and proving they fire when they should.
 updated: 2026-10-18
-permalink: /via-wash/monitoring-and-detection/
+permalink: /identity-before-detection/monitoring-and-detection/
 ---
 
 {% include callout.html title="Not started yet" text="No monitoring or detection is claimed for the Microsoft environment. This chapter will record the log sources, queries and detection tests actually used." %}

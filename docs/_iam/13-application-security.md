@@ -2,13 +2,13 @@
 title: Application security
 headline: "The app’s first security work, and what still needs checking."
 short: Application security
-order: 14
+order: 13
 part: Across the business
 status: Needs validation
 status_note: Existing work recorded. Review and safe testing are needed before any of it is presented as secure.
 summary: The security work already built into the Via Wash customer app, and the review it needs before anything is claimed.
 updated: 2026-10-18
-permalink: /via-wash/application-security/
+permalink: /identity-before-detection/application-security/
 ---
 
 ## Why the app has its own chapter

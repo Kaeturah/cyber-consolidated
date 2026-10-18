@@ -716,3 +716,37 @@ code {
 
 .lead-figure { padding-block: 40px 48px; border-bottom: 1px solid var(--line); }
 .lead-figure-link { margin-top: 18px; }
+
+/* ---------- Project cards ---------- */
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.project-card {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  border-top: 3px solid var(--rule);
+  padding-top: 16px;
+}
+
+.project-title {
+  display: block;
+  font: 500 clamp(1.9rem, 3.4vw, 2.6rem)/1.05 var(--serif);
+  letter-spacing: -0.02em;
+  margin: 10px 0 12px;
+}
+
+.project-summary { display: block; color: var(--muted); max-width: 52ch; }
+.project-card .byline { display: block; margin-top: 14px; }
+.project-card:hover .project-title { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 5px; text-decoration-thickness: 2px; }
+
+@media (max-width: 860px) {
+  .project-list { grid-template-columns: minmax(0, 1fr); }
+}

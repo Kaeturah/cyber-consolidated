@@ -11,7 +11,7 @@ layout: default
           <li><span aria-current="page">{{ page.title }}</span></li>
         </ol>
       </nav>
-      <p class="kicker">Journal{% if page.project == "via-wash" %} · Via Wash{% endif %}</p>
+      {% assign proj = site.pages | where: "slug", page.project | first %}<p class="kicker">Journal{% if proj %} · {{ proj.title }}{% endif %}</p>
       <h1>{{ page.title }}</h1>
     </div>
     <div>

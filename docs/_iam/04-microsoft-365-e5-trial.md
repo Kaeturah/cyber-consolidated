@@ -4,12 +4,12 @@ headline: "The environment is ready. Nothing is configured yet."
 short: E5 trial
 order: 4
 part: Foundation
-part_intro: The groundwork laid before stage 1 — somewhere to build, a first look at device management, and a working domain and email identity.
+part_intro: The groundwork laid before stage 1 — somewhere to build, and a first look at device management.
 status: Documented
 status_note: Trial setup documented. Licensing and billing should be rechecked before any decision relies on them.
 summary: How the Microsoft test environment was set up, what the evidence shows, and why a licence on its own proves nothing is configured.
 updated: 2026-10-18
-permalink: /via-wash/foundation/microsoft-365-e5-trial/
+permalink: /identity-before-detection/microsoft-365-e5-trial/
 ---
 
 ## Why this stage matters
@@ -35,7 +35,7 @@ The trial runs for one month, ending on 16 November 2026. One licence was then a
 
 ## Why it matters to Via Wash
 
-Several of the [six build stages]({{ '/via-wash/what-are-we-building/' | relative_url }}) rely on services included in E5, so the trial is a dependency for much of the project rather than a piece of work in its own right. It also sets a time limit: anything that depends on E5 has to fit inside the trial period or wait for a licensing decision.
+Several of the [six build stages]({{ '/identity-before-detection/what-are-we-building/' | relative_url }}) rely on services included in E5, so the trial is a dependency for much of the project rather than a piece of work in its own right. It also sets a time limit: anything that depends on E5 has to fit inside the trial period or wait for a licensing decision.
 
 ## Evidence
 
@@ -56,4 +56,4 @@ These are genuine captures from the setup. They will be added once each one has 
 
 ## What comes next
 
-With the environment in place, the first build stage is [identity and access]({{ '/via-wash/identity-and-access/' | relative_url }}). Devices, security policies and monitoring all depend on knowing who Via Wash’s users are and what they should be able to reach.
+With the environment in place, the first build stage is [identity and access]({{ '/identity-before-detection/identity-and-access/' | relative_url }}). Devices, security policies and monitoring all depend on knowing who Via Wash’s users are and what they should be able to reach.

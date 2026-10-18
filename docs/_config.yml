@@ -30,9 +30,13 @@ permalink: /journal/:year/:month/:title/
 feed:
   path: feed.xml
 
-# Each project series is a collection. Chapters are ordered by filename (01-, 02-, ...).
+# Each project is a collection of numbered chapters (01-, 02-, ...).
+# To add a project: add a collection here, a defaults block below, a folder
+# _<name>/ for its chapters, and a landing page using layout: project.
 collections:
-  via_wash:
+  iam:
+    output: true
+  domain_email:
     output: true
 
 defaults:
@@ -44,11 +48,22 @@ defaults:
       nav: journal
   - scope:
       path: ""
-      type: via_wash
+      type: iam
     values:
       layout: chapter
-      project: via-wash
-      nav: via-wash
+      nav: projects
+      project: identity-before-detection
+      project_title: Identity Before Detection
+      project_url: /identity-before-detection/
+  - scope:
+      path: ""
+      type: domain_email
+    values:
+      layout: chapter
+      nav: projects
+      project: domain-and-email
+      project_title: Domain and Business Email
+      project_url: /domain-and-email/
   - scope:
       path: ""
       type: pages

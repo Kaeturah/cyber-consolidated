@@ -8,7 +8,7 @@ part_intro: Who Via Wash is, what is being built, and the business all of it has
 status: Documented
 summary: Meet the business behind the project, and why its IT is being built carefully, in stages, before anything goes live.
 updated: 2026-10-18
-permalink: /via-wash/welcome/
+permalink: /identity-before-detection/welcome/
 ---
 
 ## Meet Via Wash
@@ -37,7 +37,7 @@ It is tempting to switch on every security feature at once. The result is usuall
 
 Via Wash will grow in layers instead, each one resting on the one before. Identities come first, because devices, data and alerts all make sense only once you know who the people are and what they should be able to reach. Devices come next, then the protection around them, then the visibility to notice when something is wrong, and finally the practice of responding when it is.
 
-[What are we building?]({{ '/via-wash/what-are-we-building/' | relative_url }}) walks through those stages and how they depend on each other.
+[What are we building?]({{ '/identity-before-detection/what-are-we-building/' | relative_url }}) walks through those stages and how they depend on each other.
 
 ## A test environment first
 
@@ -54,4 +54,4 @@ That brings one rule with it. A page only says something is done when there is e
 
 ## Where to go next
 
-Read the chapters in order to follow the build, or start with the [project overview]({{ '/via-wash/' | relative_url }}) to see every chapter at once.
+Read the chapters in order to follow the build, or start with the [project overview]({{ '/identity-before-detection/' | relative_url }}) to see every chapter at once.

@@ -8,7 +8,7 @@ status: Documented
 status_note: This chapter describes the plan; each stage has its own status.
 summary: The six build stages, what each one depends on, what it makes possible next, and the practical limits of the lab.
 updated: 2026-10-18
-permalink: /via-wash/what-are-we-building/
+permalink: /identity-before-detection/what-are-we-building/
 ---
 
 ## The shape of the journey
@@ -23,11 +23,12 @@ Early stages spend most of their time on the first three steps: deciding what sh
 
 ## Before stage 1: the foundation
 
-Before anything can be built, there has to be somewhere to build it and a way to communicate. The foundation covers three things:
+Before anything can be built, there has to be somewhere to build it. The foundation covers two things:
 
-- a [Microsoft 365 E5 trial]({{ '/via-wash/foundation/microsoft-365-e5-trial/' | relative_url }}) that provides the test environment
-- a [first look at Microsoft Intune]({{ '/via-wash/foundation/microsoft-intune/' | relative_url }}), to record its starting state
-- a [domain and business email]({{ '/via-wash/foundation/domain-and-business-email/' | relative_url }}), so the project has a professional identity on the web and in email
+- a [Microsoft 365 E5 trial]({{ '/identity-before-detection/microsoft-365-e5-trial/' | relative_url }}) that provides the test environment
+- a [first look at Microsoft Intune]({{ '/identity-before-detection/microsoft-intune/' | relative_url }}), to record its starting state
+
+The domain and business email behind this site are documented separately, in the [Domain and Business Email]({{ '/domain-and-email/' | relative_url }}) project.
 
 ## The six stages
 

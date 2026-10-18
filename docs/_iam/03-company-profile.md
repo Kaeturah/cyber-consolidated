@@ -8,7 +8,7 @@ status: In progress
 status_note: Departments are defined. Named test identities will be created in stage 1.
 summary: The departments, functions and locations that shape every access, device and security decision Via Wash makes.
 updated: 2026-10-18
-permalink: /via-wash/company-profile/
+permalink: /identity-before-detection/company-profile/
 ---
 
 ## Six departments

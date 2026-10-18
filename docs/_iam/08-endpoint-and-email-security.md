@@ -2,13 +2,13 @@
 title: Endpoint and email security
 headline: "Where attacks usually arrive: devices and email."
 short: Endpoint and email security
-order: 9
+order: 8
 stage: 3
 part: Build stages
 status: Planned
 summary: Protecting managed devices and the mailbox, and proving the protection works with safe, controlled tests.
 updated: 2026-10-18
-permalink: /via-wash/endpoint-and-email-security/
+permalink: /identity-before-detection/endpoint-and-email-security/
 ---
 
 {% include callout.html title="Not started yet" text="No Defender or email-security service is claimed as configured. This chapter will document what is actually available in the licence, what was configured, and how it was tested." %}
@@ -19,8 +19,8 @@ Devices and email are where most attacks against a small business begin: a malic
 
 ## What it depends on
 
-- Enrolled, managed devices from [stage 2]({{ '/via-wash/endpoint-and-device-management/' | relative_url }}).
-- Mailboxes and correct email authentication. The [domain and email chapter]({{ '/via-wash/foundation/domain-and-business-email/' | relative_url }}) records what is still outstanding.
+- Enrolled, managed devices from [stage 2]({{ '/identity-before-detection/endpoint-and-device-management/' | relative_url }}).
+- Mailboxes and correct email authentication. The [Domain and Business Email project]({{ '/domain-and-email/email-authentication/' | relative_url }}) records what is still outstanding.
 
 ## What it will cover
 

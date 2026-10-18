@@ -1,0 +1,26 @@
+---
+layout: default
+title: Projects
+description: Every Cyber Consolidated project, each documented chapter by chapter with screenshots.
+nav: projects
+---
+{% assign projects = site.pages | where: "layout", "project" | sort: "order" %}
+<header class="page headline headline--compact">
+  <div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><span aria-current="page">Projects</span></li>
+      </ol>
+    </nav>
+    <p class="kicker">{{ projects | size }} projects</p>
+    <h1>Projects</h1>
+  </div>
+  <div>
+    <p class="dek">Each project starts with a real need and is written up chapter by chapter, with screenshots for every step. New projects are added as they are built.</p>
+  </div>
+</header>
+
+<section class="page section section--last">
+  {% include project-list.html %}
+</section>
