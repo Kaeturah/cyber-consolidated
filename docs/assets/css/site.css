@@ -750,3 +750,69 @@ code {
 @media (max-width: 860px) {
   .project-list { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ---------- Topics and steps ---------- */
+
+.cta-line { margin-top: 18px; }
+
+.topic-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--rule); }
+
+.topic-block { padding: 26px 0 22px; border-bottom: 1px solid var(--line); }
+
+.topic-head {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 200px;
+  gap: 24px;
+  align-items: baseline;
+  text-decoration: none;
+}
+
+.topic-head .chapter-num { color: var(--ink); }
+.topic-block.is-current .chapter-state { color: var(--red); font-weight: 600; }
+.topic-head:hover .chapter-title { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 4px; }
+
+.step-list {
+  list-style: none;
+  margin: 16px 0 0 144px;
+  padding: 0;
+  border-left: 2px solid var(--line);
+}
+
+.step-list a {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 200px;
+  gap: 16px;
+  align-items: baseline;
+  padding: 7px 0 7px 18px;
+  text-decoration: none;
+  font-size: 0.97rem;
+}
+
+.step-list a:hover .step-title { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
+.step-n { color: var(--muted); font-variant-numeric: tabular-nums; }
+.step-title { color: var(--ink); }
+.step-list .is-done .step-n { color: var(--ink); font-weight: 600; }
+.step-state { font-size: 0.86rem; color: var(--muted); text-align: right; }
+
+.topic-steps { padding-top: 40px; }
+.topic-steps .section-head { margin-bottom: 0; }
+
+.series-tree { margin-top: 56px; padding-top: 16px; border-top: 2px solid var(--rule); }
+.tree { list-style: none; margin: 14px 0 0; padding: 0; columns: 2; column-gap: 48px; }
+.tree-topic { break-inside: avoid; padding: 6px 0; }
+.tree a { display: flex; gap: 12px; text-decoration: none; font-size: 0.95rem; }
+.tree a:hover span:last-child { text-decoration: underline; }
+.tree .n { color: var(--muted); min-width: 1.6em; font-variant-numeric: tabular-nums; }
+.tree a[aria-current="page"] { font-weight: 600; }
+.tree a[aria-current="page"] .n { color: var(--red); }
+.tree-topic.is-open > a { font-weight: 600; }
+.tree-topic ol { list-style: none; margin: 6px 0 4px 2.3em; padding: 0 0 0 12px; border-left: 2px solid var(--line); }
+.tree-topic ol a { padding: 3px 0; color: var(--ink-2); }
+
+@media (max-width: 860px) {
+  .topic-head { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .step-list { margin-left: 0; }
+  .step-list a { grid-template-columns: 44px minmax(0, 1fr); }
+  .step-state { grid-column: 2; text-align: left; }
+  .tree { columns: 1; }
+}

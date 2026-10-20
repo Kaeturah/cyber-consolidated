@@ -1,26 +1,35 @@
 ---
 layout: default
 ---
-{% assign chapters = site[page.collection] | sort: "order" %}
-{% assign total = chapters | size %}
-{% for c in chapters %}{% if c.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
+{% assign docs = site[page.collection] | sort: "order" %}
+{% assign topics = docs | where: "kind", "topic" %}
+{% assign this_topic = topics | where: "topic", page.topic | first %}
+{% assign steps = docs | where: "kind", "page" | where: "topic", page.topic %}
+{% assign step_total = steps | size %}
+{% for t in topics %}{% if t.topic == page.topic %}{% assign topic_n = forloop.index %}{% endif %}{% endfor %}
+{% for s in steps %}{% if s.url == page.url %}{% assign step_n = forloop.index %}{% endif %}{% endfor %}
+{% for c in docs %}{% if c.url == page.url %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
 {% assign prev_idx = idx | minus: 1 %}
 {% assign next_idx = idx | plus: 1 %}
-{% if idx > 0 %}{% assign prev = chapters[prev_idx] %}{% endif %}
-{% assign next = chapters[next_idx] %}
+{% if idx > 0 %}{% assign prev = docs[prev_idx] %}{% endif %}
+{% assign next = docs[next_idx] %}
 
 <article>
   <header class="page headline">
     <div>
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol>
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
           <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
           <li><a href="{{ page.project_url | relative_url }}">{{ page.project_title }}</a></li>
+          {% if page.kind == "page" %}<li><a href="{{ this_topic.url | relative_url }}">{{ this_topic.title }}</a></li>{% endif %}
           <li><span aria-current="page">{{ page.title }}</span></li>
         </ol>
       </nav>
-      <p class="kicker">{{ page.project_title }}{% if page.part %} · {{ page.part }}{% endif %} · Chapter {{ page.order }} of {{ total }}</p>
+      {% if page.kind == "topic" %}
+      <p class="kicker">{{ page.project_title }} · Topic {{ topic_n }} of {{ topics | size }}</p>
+      {% else %}
+      <p class="kicker">Topic {{ topic_n }}: {{ this_topic.title }} · Step {{ step_n }} of {{ step_total }}</p>
+      {% endif %}
       <h1>{{ page.headline | default: page.title }}</h1>
     </div>
     <div>
@@ -33,19 +42,52 @@ layout: default
 {{ content }}
   </div>
 
-  <div class="measure">
-    <nav class="pager" aria-label="Chapter navigation">
-      {% if prev %}<a class="prev" href="{{ prev.url | relative_url }}" rel="prev"><span class="label">Previous chapter</span><span class="pager-title">{{ prev.title }}</span></a>{% endif %}
-      {% if next %}<a class="next" href="{{ next.url | relative_url }}" rel="next"><span class="label">Next chapter</span><span class="pager-title">{{ next.title }}</span></a>{% endif %}
-    </nav>
+  {% if page.kind == "topic" and step_total > 0 %}
+  <section class="page topic-steps" aria-labelledby="steps-heading">
+    <div class="section-head">
+      <div>
+        <p class="label">Topic {{ topic_n }}</p>
+        <h2 id="steps-heading">Explore this topic</h2>
+      </div>
+    </div>
+    <ol class="chapter-list">
+      {% for s in steps %}
+      <li class="chapter-row{% if s.status == 'Documented' or s.status == 'Needs validation' %} is-done{% endif %}">
+        <a href="{{ s.url | relative_url }}">
+          <span class="chapter-num" aria-hidden="true">{{ topic_n }}.{{ forloop.index }}</span>
+          <span>
+            <span class="chapter-title"><span class="visually-hidden">Step {{ forloop.index }}: </span>{{ s.title }}</span>
+            <span class="chapter-dek">{{ s.summary }}</span>
+          </span>
+          <span class="chapter-state">{% include progress.html doc=s %}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
 
-    <nav class="series-mini" aria-labelledby="series-heading">
-      <p class="label" id="series-heading">{{ page.project_title }}: all chapters</p>
-      <ol>
-        {% for c in chapters %}
-        <li><a href="{{ c.url | relative_url }}"{% if c.url == page.url %} aria-current="page"{% endif %}><span class="n">{{ c.order }}</span><span>{{ c.title }}</span></a></li>
-        {% endfor %}
-      </ol>
+  <div class="measure">
+    <nav class="pager" aria-label="Previous and next">
+      {% if prev %}<a class="prev" href="{{ prev.url | relative_url }}" rel="prev"><span class="label">Previous{% if prev.kind == "topic" %} topic{% endif %}</span><span class="pager-title">{{ prev.title }}</span></a>{% endif %}
+      {% if next %}<a class="next" href="{{ next.url | relative_url }}" rel="next"><span class="label">Next{% if next.kind == "topic" %} topic{% endif %}</span><span class="pager-title">{{ next.title }}</span></a>{% endif %}
     </nav>
   </div>
+
+  <nav class="page series-tree" aria-labelledby="tree-heading">
+    <p class="label" id="tree-heading">{{ page.project_title }}: all topics</p>
+    <ol class="tree">
+      {% for t in topics %}
+      <li class="tree-topic{% if t.topic == page.topic %} is-open{% endif %}">
+        <a href="{{ t.url | relative_url }}"{% if t.url == page.url %} aria-current="page"{% endif %}><span class="n">{{ forloop.index }}</span><span>{{ t.title }}</span></a>
+        {% if t.topic == page.topic %}
+        {% assign t_steps = docs | where: "kind", "page" | where: "topic", t.topic %}
+        <ol>
+          {% for s in t_steps %}<li><a href="{{ s.url | relative_url }}"{% if s.url == page.url %} aria-current="page"{% endif %}>{{ s.title }}</a></li>{% endfor %}
+        </ol>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+  </nav>
 </article>

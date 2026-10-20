@@ -4,7 +4,8 @@ title: Cyber Consolidated
 description: IT, identity, cloud and security projects, built for real businesses and documented chapter by chapter with screenshots.
 ---
 {% assign lead = site.pages | where: "slug", "identity-before-detection" | first %}
-{% assign lead_chapters = site.iam %}
+{% assign lead_chapters = site.iam | where: "kind", "page" %}
+{% assign lead_topics = site.iam | where: "kind", "topic" | size %}
 {% assign lead_total = lead_chapters | size %}
 {% assign lead_a = lead_chapters | where: "status", "Documented" | size %}
 {% assign lead_b = lead_chapters | where: "status", "Needs validation" | size %}
@@ -15,10 +16,10 @@ description: IT, identity, cloud and security projects, built for real businesse
     <p class="kicker">Featured project · Identity and access management</p>
     <h1 id="lead-title">Identity before detection.</h1>
     <p class="dek">Designing identity and access for Via Wash, a laundry pickup and delivery business in development, then building devices, security, monitoring and incident response on top of it.</p>
-    <p class="byline"><span>By {{ site.author }}</span><span>{{ lead_total }} chapters</span><span>{{ lead_written }} written so far</span></p>
-    <a class="more" href="{{ '/identity-before-detection/welcome/' | relative_url }}">Start with chapter 1</a>
+    <p class="byline"><span>By {{ site.author }}</span><span>{{ lead_topics }} topics</span><span>{{ lead_total }} steps</span><span>{{ lead_written }} written so far</span></p>
+    <a class="more" href="{{ '/identity-before-detection/start-here/' | relative_url }}">Start here</a>
     &nbsp;&nbsp;&nbsp;
-    <a class="more" href="{{ lead.url | relative_url }}">See every chapter</a>
+    <a class="more" href="{{ lead.url | relative_url }}">See every topic</a>
   </div>
 
   <aside class="latest" aria-labelledby="latest-title">
@@ -44,14 +45,14 @@ description: IT, identity, cloud and security projects, built for real businesse
       <p class="label">Identity Before Detection · The route</p>
       <h2 id="route-title">Six stages, each built on the last</h2>
     </div>
-    <a class="more" href="{{ '/identity-before-detection/what-are-we-building/' | relative_url }}">Why this order</a>
+    <a class="more" href="{{ '/identity-before-detection/start-here/what-are-we-building/' | relative_url }}">Why this order</a>
   </div>
   {% include build-path.html %}
 </section>
 
 <section class="page lead-figure" aria-label="From the evidence">
   {% include evidence.html label="From Domain and Business Email" title="MX and SPF records published at the registrar, the night the business mailbox went live." where="NameSilo · DNS records" source="Screenshot 2026-10-17 015435.png" %}
-  <p class="lead-figure-link"><a class="more" href="{{ '/domain-and-email/email-authentication/' | relative_url }}">Read “The mailbox works. DKIM doesn’t, yet.”</a></p>
+  <p class="lead-figure-link"><a class="more" href="{{ '/domain-and-email/getting-online/email-authentication/' | relative_url }}">Read “The mailbox works. DKIM doesn’t, yet.”</a></p>
 </section>
 
 <section class="page section" aria-labelledby="projects-title">

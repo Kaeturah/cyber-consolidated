@@ -1,0 +1,32 @@
+---
+title: Monitoring and detection
+headline: Turning a stream of activity into signals.
+kind: topic
+topic: monitoring-and-detection
+order: 100
+status: Planned
+summary: Choosing the logs that matter, writing detections, and proving they fire when they should.
+updated: 2026-10-20
+permalink: /identity-before-detection/monitoring-and-detection/
+stage: 5
+short: Monitoring
+---
+
+{% include callout.html title="Not started yet" text="No monitoring or detection is claimed for the Microsoft environment. This topic will record the log sources, queries and detection tests actually used." %}
+
+## Why this stage matters
+
+By this point the environment produces a steady stream of activity: sign-ins, device events, security alerts. On its own that is just noise. Monitoring turns it into something useful by picking the sources that matter, defining what suspicious looks like, and making sure the right activity stands out.
+
+## What it depends on
+
+- Identities, devices and security services from stages 1 to 4, which generate the activity to monitor.
+- The right tools for the budget. Microsoft Sentinel runs on a separate, usage-billed Azure subscription, so the first detections may be built with tools the licence already includes.
+
+## How it will be validated
+
+Each detection will be triggered deliberately with a safe test, such as a burst of failed sign-ins on a test account, and the evidence will show both the activity and the detection catching it.
+
+## What it makes possible
+
+Alerts with enough context to investigate, which is where stage 6 begins.

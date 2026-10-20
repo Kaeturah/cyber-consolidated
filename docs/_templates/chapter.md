@@ -1,27 +1,24 @@
 ---
-title: Chapter title
-short: Short name
-order: 15
-part: Build stages
+title: Step title
+kind: page
+topic: building-identity-in-entra-id
+order: 57
 status: Planned
-status_note: One sentence on where this stands.
-summary: One or two sentences shown on the project overview and at the top of the chapter.
-updated: 2026-10-18
-permalink: /via-wash/chapter-slug/
+summary: One or two sentences shown in the topic’s step list and at the top of the page.
+updated: 2026-10-20
+permalink: /identity-before-detection/building-identity-in-entra-id/step-slug/
 ---
 
-## Why this matters
+## What this step is
 
-## What it depends on
+## Why it matters for Via Wash
 
 ## What was done
 
-## How it was validated
+## How it was checked
 
 ## Evidence
 
-{% raw %}{% include evidence.html title="..." shows="..." proves="..." redact="..." source="Screenshot ....png" %}{% endraw %}
-
-## Limitations
+{% raw %}{% include evidence.html title="..." where="..." shows="..." proves="..." source="Screenshot ....png" %}{% endraw %}
 
 ## What comes next

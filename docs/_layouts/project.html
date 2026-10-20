@@ -1,10 +1,11 @@
 ---
 layout: default
 ---
-{% assign chapters = site[page.collection] | sort: "order" %}
-{% assign total = chapters | size %}
-{% assign done_a = chapters | where: "status", "Documented" | size %}
-{% assign done_b = chapters | where: "status", "Needs validation" | size %}
+{% assign docs = site[page.collection] | sort: "order" %}
+{% assign topics = docs | where: "kind", "topic" %}
+{% assign steps_all = docs | where: "kind", "page" %}
+{% assign done_a = steps_all | where: "status", "Documented" | size %}
+{% assign done_b = steps_all | where: "status", "Needs validation" | size %}
 {% assign written = done_a | plus: done_b %}
 
 <header class="page headline">
@@ -21,7 +22,9 @@ layout: default
   </div>
   <div>
     <p class="dek">{{ page.summary }}</p>
-    <p class="byline"><span>By {{ site.author }}</span><span>{{ total }} chapters</span><span>{{ written }} written so far</span></p>
+    <p class="byline"><span>By {{ site.author }}</span><span>{{ topics | size }} topics</span><span>{{ steps_all | size }} steps</span><span>{{ written }} written so far</span></p>
+    {% assign first_topic = topics | first %}
+    <p class="byline cta-line"><a class="more" href="{{ first_topic.url | relative_url }}">Start here</a></p>
   </div>
 </header>
 
@@ -42,30 +45,35 @@ layout: default
 {% endif %}
 
 <section class="page contents" aria-labelledby="contents-title">
-  <h2 id="contents-title" class="visually-hidden">Chapters</h2>
-  {% assign current_part = "" %}
-  {% for c in chapters %}
-    {% assign c_part = c.part | default: "Chapters" %}
-    {% if c_part != current_part %}
-      {% unless forloop.first %}</ol></div>{% endunless %}
-      <div class="part">
-        <div class="part-head">
-          <p class="kicker">{{ c_part }}</p>
-          {% if c.part_intro %}<p>{{ c.part_intro }}</p>{% endif %}
-        </div>
-        <ol class="chapter-list">
-      {% assign current_part = c_part %}
-    {% endif %}
-        <li class="chapter-row{% if c.status == 'Documented' or c.status == 'Needs validation' %} is-done{% endif %}{% if c.current %} is-current{% endif %}">
-          <a href="{{ c.url | relative_url }}">
-            <span class="chapter-num" aria-hidden="true">{% if c.order < 10 %}0{% endif %}{{ c.order }}</span>
-            <span>
-              <span class="chapter-title"><span class="visually-hidden">Chapter {{ c.order }}: </span>{{ c.title }}</span>
-              <span class="chapter-dek">{{ c.summary }}</span>
-            </span>
-            <span class="chapter-state">{% include progress.html doc=c %}<br>{% include read-time.html text=c.content %}</span>
-          </a>
+  <div class="section-head">
+    <div>
+      <p class="label">Contents</p>
+      <h2 id="contents-title">Every topic and step</h2>
+    </div>
+  </div>
+  <ol class="topic-list">
+    {% for t in topics %}
+    {% assign t_steps = steps_all | where: "topic", t.topic %}
+    <li class="topic-block{% if t.current %} is-current{% endif %}">
+      <a class="topic-head" href="{{ t.url | relative_url }}">
+        <span class="chapter-num" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        <span>
+          <span class="chapter-title"><span class="visually-hidden">Topic {{ forloop.index }}: </span>{{ t.title }}</span>
+          <span class="chapter-dek">{{ t.summary }}</span>
+        </span>
+        <span class="chapter-state">{% include progress.html doc=t %}</span>
+      </a>
+      {% if t_steps.size > 0 %}
+      <ol class="step-list">
+        {% assign tn = forloop.index %}
+        {% for s in t_steps %}
+        <li class="{% if s.status == 'Documented' or s.status == 'Needs validation' %}is-done{% endif %}">
+          <a href="{{ s.url | relative_url }}"><span class="step-n">{{ tn }}.{{ forloop.index }}</span><span class="step-title">{{ s.title }}</span><span class="step-state">{% include progress.html doc=s %}</span></a>
         </li>
-    {% if forloop.last %}</ol></div>{% endif %}
-  {% endfor %}
+        {% endfor %}
+      </ol>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
 </section>
