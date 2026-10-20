@@ -2,7 +2,7 @@
 title: What the app already logs
 kind: page
 topic: application-security
-order: 131
+order: 151
 status: Needs validation
 summary: The sign-in logging and failed-login detection already built into the app, recorded as an inventory.
 updated: 2026-10-18

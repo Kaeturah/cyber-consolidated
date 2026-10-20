@@ -816,3 +816,74 @@ code {
   .step-state { grid-column: 2; text-align: left; }
   .tree { columns: 1; }
 }
+
+/* ---------- Flow diagram (process steps) ---------- */
+
+.prose > .flow { grid-column: wide; }
+
+.flow {
+  list-style: none;
+  margin: 2em 0 1em;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  border-top: 2px solid var(--rule);
+}
+
+.flow-step {
+  position: relative;
+  padding: 16px 18px 6px 0;
+  margin: 0;
+}
+
+.flow-step + .flow-step { padding-left: 18px; border-left: 1px solid var(--line); }
+
+.flow-step:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -9px;
+  top: 14px;
+  background: var(--paper);
+  color: var(--red);
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 0;
+  z-index: 1;
+}
+
+.flow-n { display: block; font: 500 1.9rem/1 var(--serif); color: var(--ink); }
+.flow-name { display: block; font-weight: 600; color: var(--ink); margin-top: 8px; line-height: 1.3; }
+.flow-note { display: block; font-size: 0.9rem; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+@media (max-width: 760px) {
+  .flow { grid-auto-flow: row; grid-auto-columns: auto; }
+  .flow-step, .flow-step + .flow-step { padding: 12px 0 12px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+  .flow-step:not(:last-child)::after { content: "↓"; right: auto; left: auto; top: auto; bottom: -11px; }
+}
+
+/* ---------- Topic route (all topics, one numbering) ---------- */
+
+.route { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.route li { border-bottom: 1px solid var(--line); }
+.route li:nth-child(5n) { border-right: 0; }
+.route-num { font-size: 2rem; }
+
+@media (max-width: 1000px) {
+  .route { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .route li:nth-child(5n) { border-right: 1px solid var(--line); }
+  .route li:nth-child(3n) { border-right: 0; }
+}
+
+@media (max-width: 600px) {
+  .route { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .route li:nth-child(3n) { border-right: 1px solid var(--line); }
+  .route li:nth-child(2n) { border-right: 0; }
+}
+
+@media (max-width: 1000px) {
+  .route li:nth-child(4n) { border-right: 1px solid var(--line); }
+  .route li:nth-child(3n) { border-right: 0; }
+}
+.route .is-current .route-state { color: var(--red); font-weight: 600; }
+.lead-figure-link { display: none; }

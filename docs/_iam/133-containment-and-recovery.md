@@ -2,7 +2,7 @@
 title: Containment and recovery
 kind: page
 topic: incident-response
-order: 113
+order: 133
 status: Planned
 summary: Stopping the damage, restoring normal, and learning from it.
 updated: 2026-10-20

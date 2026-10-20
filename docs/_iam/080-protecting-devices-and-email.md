@@ -8,8 +8,7 @@ status: Planned
 summary: Protecting managed devices and the mailbox, and proving the protection works with safe, controlled tests.
 updated: 2026-10-20
 permalink: /identity-before-detection/protecting-devices-and-email/
-stage: 3
-short: Security
+short: Defender
 ---
 
 {% include callout.html title="Not started yet" text="No Defender or email-security service is claimed as configured. This topic will document what is actually available in the licence, what was configured, and how it was tested." %}

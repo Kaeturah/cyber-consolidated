@@ -2,7 +2,7 @@
 title: Writing detections
 kind: page
 topic: monitoring-and-detection
-order: 102
+order: 122
 status: Planned
 summary: Turning “this looks suspicious” into a query that finds it.
 updated: 2026-10-20

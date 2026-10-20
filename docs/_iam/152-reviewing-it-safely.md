@@ -2,7 +2,7 @@
 title: Reviewing it safely
 kind: page
 topic: application-security
-order: 132
+order: 152
 status: Planned
 summary: Checking the app’s security controls properly, in an isolated environment, before anything is claimed.
 updated: 2026-10-20

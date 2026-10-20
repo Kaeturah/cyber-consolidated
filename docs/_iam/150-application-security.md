@@ -3,7 +3,7 @@ title: Application security
 headline: The customer app has its own security story
 kind: topic
 topic: application-security
-order: 130
+order: 150
 status: In progress
 summary: The security work already built into the Via Wash customer app, and the review it needs before anything is claimed.
 updated: 2026-10-20

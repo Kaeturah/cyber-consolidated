@@ -9,6 +9,7 @@ summary: Getting a tenant and the Microsoft 365 E5 licence, then checking that E
 updated: 2026-10-20
 permalink: /identity-before-detection/preparing-the-environment/
 short: Environment
+current: true
 ---
 
 ## Somewhere to build

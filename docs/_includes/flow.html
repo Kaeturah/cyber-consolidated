@@ -1,0 +1,3 @@
+{% assign flow_steps = include.steps | split: "|" %}{% assign flow_notes = include.notes | split: "|" %}<ol class="flow" aria-label="{{ include.label | default: 'Process' }}">
+{% for s in flow_steps %}<li class="flow-step"><span class="flow-n" aria-hidden="true">{{ forloop.index }}</span><span class="flow-name">{{ s }}</span>{% if flow_notes[forloop.index0] %}<span class="flow-note">{{ flow_notes[forloop.index0] }}</span>{% endif %}</li>
+{% endfor %}</ol>

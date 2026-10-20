@@ -3,12 +3,11 @@ title: Hybrid identity
 headline: Where the cloud meets the server room.
 kind: topic
 topic: hybrid-identity
-order: 90
+order: 100
 status: Planned
-summary: A small test Active Directory domain, and how traditional infrastructure and cloud identity meet.
+summary: Connecting the on-premises Active Directory domain to Entra ID, so one identity works in both places.
 updated: 2026-10-20
 permalink: /identity-before-detection/hybrid-identity/
-stage: 4
 short: Hybrid
 ---
 
@@ -21,7 +20,7 @@ Many organisations still run traditional servers, with user accounts managed in 
 ## What it depends on
 
 - The identity design from [stage 1]({{ '/identity-before-detection/building-identity-in-entra-id/' | relative_url }}), so that on-premises accounts and groups mirror the same departments.
-- The Windows Server from [Building the lab]({{ '/identity-before-detection/building-the-lab/' | relative_url }}).
+- The domain from [On-premises IT]({{ '/identity-before-detection/on-premises-it/' | relative_url }}).
 
 ## How it will be validated
 

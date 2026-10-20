@@ -2,7 +2,7 @@
 title: Testing detections
 kind: page
 topic: monitoring-and-detection
-order: 103
+order: 123
 status: Planned
 summary: Triggering each detection on purpose to prove it fires.
 updated: 2026-10-20

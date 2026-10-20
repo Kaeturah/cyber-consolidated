@@ -1,12 +1,12 @@
 ---
 title: Joiners
 kind: page
-topic: joiners-movers-and-leavers
+topic: identity-lifecycle
 order: 41
 status: Planned
 summary: Everything a new starter needs on day one, from account to device to sign-in methods.
 updated: 2026-10-20
-permalink: /identity-before-detection/joiners-movers-and-leavers/joiners/
+permalink: /identity-before-detection/identity-lifecycle/joiners/
 ---
 
 {% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}

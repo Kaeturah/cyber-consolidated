@@ -2,7 +2,7 @@
 title: Log sources
 kind: page
 topic: monitoring-and-detection
-order: 101
+order: 121
 status: Planned
 summary: Deciding which logs matter and making sure they are collected.
 updated: 2026-10-20

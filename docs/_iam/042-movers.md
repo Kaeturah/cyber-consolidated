@@ -1,12 +1,12 @@
 ---
 title: Movers
 kind: page
-topic: joiners-movers-and-leavers
+topic: identity-lifecycle
 order: 42
 status: Planned
 summary: What happens when someone changes department or role, so old access doesn’t quietly stay behind.
 updated: 2026-10-20
-permalink: /identity-before-detection/joiners-movers-and-leavers/movers/
+permalink: /identity-before-detection/identity-lifecycle/movers/
 ---
 
 {% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}

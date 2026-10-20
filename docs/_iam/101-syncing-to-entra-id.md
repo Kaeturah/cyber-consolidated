@@ -2,9 +2,9 @@
 title: Syncing to Entra ID
 kind: page
 topic: hybrid-identity
-order: 93
+order: 101
 status: Planned
-summary: Connecting on-premises Active Directory to Entra ID, if the lab can support it.
+summary: Copying on-premises identities to Entra ID with Entra Connect or Cloud Sync.
 updated: 2026-10-20
 permalink: /identity-before-detection/hybrid-identity/syncing-to-entra-id/
 ---
@@ -13,16 +13,16 @@ permalink: /identity-before-detection/hybrid-identity/syncing-to-entra-id/
 
 ## What this step is
 
-Synchronising on-premises identities to Entra ID using Microsoft Entra Connect or Cloud Sync.
+Synchronising on-premises users and groups to Entra ID using Microsoft Entra Connect Sync or Cloud Sync.
 
 ## Why it matters for Via Wash
 
-This is hybrid identity: one identity that works both on-premises and in the cloud. It is also where many real-world identity problems start.
+This is hybrid identity: one account that works on-premises and in the cloud. It is also where many real-world identity problems start, so it is worth understanding properly.
 
 ## What will be done
 
 - Choose the sync approach and record why
-- Configure it for a small test scope first
+- Sync a small test OU first
 - Check synced users appear correctly in Entra ID
 
 ## How it will be checked

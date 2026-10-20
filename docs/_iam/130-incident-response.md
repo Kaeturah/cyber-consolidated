@@ -3,12 +3,11 @@ title: Incident response
 headline: When something goes wrong.
 kind: topic
 topic: incident-response
-order: 110
+order: 130
 status: Planned
 summary: Bringing every stage together to investigate, contain and learn from simulated incidents.
 updated: 2026-10-20
 permalink: /identity-before-detection/incident-response/
-stage: 6
 short: Response
 ---
 

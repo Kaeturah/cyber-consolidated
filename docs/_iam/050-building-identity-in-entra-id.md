@@ -8,9 +8,7 @@ status: Planned
 summary: "Stage 1: turning the identity design into real users, groups, roles and sign-in controls in Microsoft Entra ID."
 updated: 2026-10-20
 permalink: /identity-before-detection/building-identity-in-entra-id/
-stage: 1
-current: true
-short: Identity
+short: Entra ID
 ---
 
 {% include callout.html title="Not started yet" text="This topic sets out the plan for stage 1. It will be rewritten with real configuration, test results and evidence as the work happens." %}

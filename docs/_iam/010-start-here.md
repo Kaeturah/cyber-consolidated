@@ -1,6 +1,7 @@
 ---
 title: Start here
 headline: "Start here: how this project works"
+short: Start here
 kind: topic
 topic: start-here
 order: 10
@@ -21,16 +22,18 @@ The project is split into **topics**. Each topic has an overview page that expla
 1. **Start here.** The business, the plan and the people.
 2. **Preparing the Microsoft environment.** Getting the tenant and licence, then checking every service is actually ready.
 3. **Designing identity and access.** Deciding who should have access to what, before building anything.
-4. **Joiners, movers and leavers.** How access changes as people do.
+4. **Identity lifecycle.** Joiners, movers and leavers: how access changes as people do.
 5. **Building identity in Entra ID.** Turning the design into users, groups, roles and sign-in controls.
 6. **Building the lab.** Virtual machines and networking for the device and on-premises work.
-7. **Managing devices with Intune.** Bringing devices under management.
+7. **Managing devices with Intune.** Bringing devices under management from the cloud.
 8. **Protecting devices and email.** Defender, tested safely.
-9. **Hybrid identity.** On-premises Active Directory and how it meets the cloud.
-10. **Monitoring and detection.** Turning activity into signals.
-11. **Incident response.** Investigating and containing simulated incidents.
-12. **IT support and operations.** Supporting the people who use all of it.
-13. **Application security.** The Via Wash customer app.
+9. **On-premises IT.** Everyday company IT: Active Directory, Windows 11, Group Policy, file shares and software.
+10. **Hybrid identity.** Connecting the on-premises domain to Entra ID.
+11. **A new starter’s first day.** One new employee, followed from the HR request to a ready laptop.
+12. **Monitoring and detection.** Turning activity into signals.
+13. **Incident response.** Investigating and containing simulated incidents.
+14. **IT support and operations.** Supporting the people who use all of it.
+15. **Application security.** The Via Wash customer app.
 
 ## Using it as a study guide
 

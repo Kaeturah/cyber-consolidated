@@ -2,7 +2,7 @@
 title: Triage
 kind: page
 topic: incident-response
-order: 111
+order: 131
 status: Planned
 summary: Deciding quickly whether an alert matters, and how much.
 updated: 2026-10-20

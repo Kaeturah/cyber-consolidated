@@ -3,12 +3,12 @@ title: IT support and operations
 headline: Technology only works if people can get help.
 kind: topic
 topic: it-support-and-operations
-order: 120
+order: 140
 status: Planned
 summary: How Via Wash’s staff get help, request access and get devices, and how changes are recorded so the environment stays understandable.
 updated: 2026-10-20
 permalink: /identity-before-detection/it-support-and-operations/
-short: Support
+short: IT support
 ---
 
 {% include callout.html title="Not started yet" text="No ticketing system or operational process exists yet. This topic reserves a place for them, and each will be documented once it is actually set up and used." %}

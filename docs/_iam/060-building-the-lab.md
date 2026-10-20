@@ -25,4 +25,4 @@ Some of this project can be done entirely in the cloud. But managing devices and
 
 ## What the lab is for
 
-The Windows 11 client supports [Managing devices with Intune]({{ '/identity-before-detection/managing-devices/' | relative_url }}) and [Protecting devices and email]({{ '/identity-before-detection/protecting-devices-and-email/' | relative_url }}). The Windows Server supports [Hybrid identity]({{ '/identity-before-detection/hybrid-identity/' | relative_url }}).
+The Windows 11 client supports [Managing devices with Intune]({{ '/identity-before-detection/managing-devices/' | relative_url }}) and [Protecting devices and email]({{ '/identity-before-detection/protecting-devices-and-email/' | relative_url }}). The Windows Server supports [On-premises IT]({{ '/identity-before-detection/on-premises-it/' | relative_url }}) and [Hybrid identity]({{ '/identity-before-detection/hybrid-identity/' | relative_url }}).

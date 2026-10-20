@@ -3,12 +3,11 @@ title: Monitoring and detection
 headline: Turning a stream of activity into signals.
 kind: topic
 topic: monitoring-and-detection
-order: 100
+order: 120
 status: Planned
 summary: Choosing the logs that matter, writing detections, and proving they fire when they should.
 updated: 2026-10-20
 permalink: /identity-before-detection/monitoring-and-detection/
-stage: 5
 short: Monitoring
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Leavers
 kind: page
-topic: joiners-movers-and-leavers
+topic: identity-lifecycle
 order: 43
 status: Planned
 summary: "Removing access properly when someone leaves: more than just disabling the account."
 updated: 2026-10-20
-permalink: /identity-before-detection/joiners-movers-and-leavers/leavers/
+permalink: /identity-before-detection/identity-lifecycle/leavers/
 ---
 
 {% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}

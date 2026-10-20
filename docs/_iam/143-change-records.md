@@ -2,7 +2,7 @@
 title: Change records
 kind: page
 topic: it-support-and-operations
-order: 123
+order: 143
 status: Planned
 summary: "Recording every configuration change: what, why, how to undo it, and how it was tested."
 updated: 2026-10-20

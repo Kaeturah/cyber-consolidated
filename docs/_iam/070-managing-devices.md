@@ -8,8 +8,7 @@ status: In progress
 summary: Bringing Via Wash’s devices under management, so the business knows which devices exist and whether they can be trusted.
 updated: 2026-10-20
 permalink: /identity-before-detection/managing-devices/
-stage: 2
-short: Devices
+short: Intune
 status_note: Initial Intune readiness is documented. Enrolment hasn’t started.
 ---
 
