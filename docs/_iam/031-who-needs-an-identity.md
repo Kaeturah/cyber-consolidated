@@ -9,28 +9,26 @@ updated: 2026-10-20
 permalink: /identity-before-detection/designing-identity-and-access/who-needs-an-identity/
 ---
 
-{% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}
+{% include callout.html title="Not started yet" text="I haven’t done this step yet. This page explains the problem it solves and what I plan to do, and it will be rewritten with the real decisions, configuration and screenshots once the work happens." %}
 
-## What this step is
+## The problem
 
-A list of every kind of identity Via Wash will have, and what each kind is for.
+When people think of identities, they think of staff accounts. But Via Wash will have more than that. There is my own administrator account. There will be emergency accounts for when normal admin access fails. Later there may be service accounts for automated jobs, the devices themselves, and possibly guests such as an outside accountant.
 
-## Why it matters for Via Wash
+Each of these carries a different risk. An everyday staff account, an administrator account and an emergency account shouldn’t be protected or reviewed the same way. If I don’t define the types up front, the riskiest accounts end up treated like ordinary ones.
 
-Different identities carry different risks. An everyday staff account, an administrator account and an emergency account shouldn’t be managed the same way, so the types need defining before anything is created.
+## What I plan to decide
 
-## What will be done
+- Which identity types Via Wash needs now (staff, administrators, emergency accounts) and which can wait (service accounts, guests)
+- What each type is for, and who owns it
+- How each type should be protected and reviewed
 
-- List the identity types: staff, administrators, emergency (break-glass) accounts, service accounts, devices and guests
-- Describe what each type is for and who owns it
-- Decide which types Via Wash needs now and which come later
+## How I’ll know it worked
 
-## How it will be checked
-
-- Every planned account fits exactly one type
-- Each type has a named owner and a clear purpose
+- Every account I create later fits exactly one type
+- Each type has an owner and a clear purpose written down
 
 ## Key terms
 
-- **Break-glass account**: an emergency admin account kept aside for when normal admin access fails
-- **Service account**: an identity used by an application or automated process, not a person
+- **Break-glass account:** an emergency administrator account kept aside for when normal admin access fails
+- **Service account:** an identity used by an application or automated process rather than a person

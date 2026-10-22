@@ -1,22 +1,18 @@
 ---
 layout: default
 title: Cyber Consolidated
-description: IT, identity, cloud and security projects, built for real businesses and documented chapter by chapter with screenshots.
+description: IT, identity, cloud and security projects for real businesses, documented step by step with genuine screenshots and an honest status for every page.
 ---
 {% assign lead = site.pages | where: "slug", "identity-before-detection" | first %}
 {% assign lead_chapters = site.iam | where: "kind", "page" %}
 {% assign lead_topics = site.iam | where: "kind", "topic" | size %}
-{% assign lead_total = lead_chapters | size %}
-{% assign lead_a = lead_chapters | where: "status", "Documented" | size %}
-{% assign lead_b = lead_chapters | where: "status", "Needs validation" | size %}
-{% assign lead_written = lead_a | plus: lead_b %}
 
 <section class="page lead" aria-labelledby="lead-title">
   <div class="lead-story">
     <p class="kicker">Featured project · Identity and access management</p>
     <h1 id="lead-title">Identity before detection.</h1>
     <p class="dek">Designing identity and access for Via Wash, a laundry pickup and delivery business in development, then building devices, security, monitoring and incident response on top of it.</p>
-    <p class="byline"><span>By {{ site.author }}</span><span>{{ lead_topics }} topics</span><span>{{ lead_total }} steps</span><span>{{ lead_written }} written so far</span></p>
+    <p class="byline"><span>By {{ site.author }}</span><span>{{ lead_topics }} topics</span>{% include step-counts.html steps=lead_chapters %}</p>
     <a class="more" href="{{ '/identity-before-detection/start-here/' | relative_url }}">Start here</a>
     &nbsp;&nbsp;&nbsp;
     <a class="more" href="{{ lead.url | relative_url }}">See every topic</a>
@@ -43,9 +39,9 @@ description: IT, identity, cloud and security projects, built for real businesse
   <div class="section-head">
     <div>
       <p class="label">Identity Before Detection · The route</p>
-      <h2 id="route-title">Fifteen topics, in order</h2>
+      <h2 id="route-title">Where the project stands</h2>
     </div>
-    <a class="more" href="{{ '/identity-before-detection/start-here/' | relative_url }}">How the project works</a>
+    <a class="more" href="{{ '/identity-before-detection/' | relative_url }}#roadmap">See the roadmap</a>
   </div>
   {% include build-path.html %}
 </section>
@@ -67,7 +63,7 @@ description: IT, identity, cloud and security projects, built for real businesse
     <h2 id="about-title">Written by {{ site.author }}</h2>
   </div>
   <div>
-    <p>I learn by building real things. Each project here starts with a real need, and each chapter shows what I decided, what I configured, how I tested it and what the screenshots do and don’t prove.</p>
+    <p>I learn by building real things. Each project here starts with a real need. The pages record what I decided, what I actually configured, how I tested it and what the screenshots do and don’t prove, and work I haven’t done yet stays on the roadmap.</p>
     <p><a class="more" href="{{ '/about/' | relative_url }}">More about me and how I work</a>&nbsp;&nbsp;&nbsp;<a class="more" href="mailto:{{ site.email }}">{{ site.email }}</a></p>
   </div>
 </section>

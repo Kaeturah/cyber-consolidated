@@ -9,29 +9,29 @@ updated: 2026-10-20
 permalink: /identity-before-detection/designing-identity-and-access/departments-into-groups/
 ---
 
-{% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}
+{% include callout.html title="Not started yet" text="I haven’t done this step yet. This page explains the problem it solves and what I plan to do, and it will be rewritten with the real decisions, configuration and screenshots once the work happens." %}
 
-## What this step is
+## The problem
 
-The group design: how Management, Finance, HR, Operations, Delivery Team and IT, and the functions inside IT, become groups in Entra ID.
+Via Wash has six departments, and the IT department has several functions inside it. If I grant access to each person individually, every new starter becomes a list of manual tasks, and every leaver becomes a list of things that might be forgotten. Groups solve that: access is granted to the group once, and people inherit it by being in the group.
 
-## Why it matters for Via Wash
+The hard part is deciding the groups well. Too few, and people get access they don’t need. Too many, and nobody can tell what each one is for.
 
-Granting access person by person doesn’t scale and is hard to review. Groups let access follow the job: put someone in the Finance group, and they get what Finance needs.
+## What I plan to decide
 
-## What will be done
+- One group per department: Management, Finance, HR, Operations, Delivery Team and IT
+- Role groups inside IT, such as IT Support and Endpoint Management, so IT access can be split by function rather than given to everyone in IT
+- Which groups should fill themselves automatically (dynamic membership based on the department recorded on each account) and which should be managed by hand (assigned membership)
+- What each group is allowed to reach, written down next to it
 
-- Define one group per department
-- Define role groups inside IT, such as IT Support and Endpoint Management
-- Decide which groups use automatic (dynamic) membership based on the department field
-- Write down what each group grants
+I already used an assigned group once, for the Intune test: `VW-Intune-Test-Devices`, so I could choose exactly who was in scope. That was a deliberate choice for a test. This step decides the permanent department structure.
 
-## How it will be checked
+## How I’ll know it worked
 
-- Every department and IT function maps to a group
-- Each group’s purpose is written down
+- Every department and IT function maps to a group with a written purpose
+- Changing a test user’s department moves them into the right group
 
 ## Key terms
 
-- **Security group**: a group used to grant access
-- **Dynamic group**: a group whose members are added automatically by a rule, such as department equals Finance
+- **Security group:** a group used to grant access
+- **Dynamic group:** a group whose members are added automatically by a rule, such as “department equals Finance”

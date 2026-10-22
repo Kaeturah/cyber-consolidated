@@ -9,23 +9,19 @@ updated: 2026-10-20
 permalink: /identity-before-detection/identity-lifecycle/joiners/
 ---
 
-{% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}
+{% include callout.html title="Not started yet" text="I haven’t done this step yet. This page explains the problem it solves and what I plan to do, and it will be rewritten with the real decisions, configuration and screenshots once the work happens." %}
 
-## What this step is
+## The problem
 
-The process for a new starter: creating the account, giving the right access through groups, preparing a device, and registering sign-in methods.
+A new starter’s first day sets the tone. If their account, laptop and access aren’t ready, they sit waiting, and the temptation is to give them broad access “just to get them working”. That shortcut is how new accounts start out over-privileged.
 
-## Why it matters for Via Wash
+## What I plan to do
 
-A smooth first day depends on IT getting this right before the person arrives, and a consistent process stops new starters from being given too much access just to get them working.
+- Define what HR must send IT before someone starts: name, department, job title, manager and start date
+- Create the account with the department filled in, so group membership, and therefore access, follows automatically
+- Assign a licence only if the person needs one, and prepare a device
+- Have them register multi-factor authentication at their first sign-in
 
-## What will be done
+## How I’ll know it worked
 
-- Define what HR sends IT before someone starts
-- Create the account with the department field filled in, so group membership follows
-- Assign a licence and prepare a device
-- Register multi-factor authentication on the first sign-in
-
-## How it will be checked
-
-- A test joiner gets exactly their baseline and department access, nothing more
+- A test joiner ends up with exactly their company baseline and department access, and nothing more

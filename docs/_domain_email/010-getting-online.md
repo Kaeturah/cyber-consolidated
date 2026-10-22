@@ -12,7 +12,7 @@ permalink: /domain-and-email/getting-online/
 
 ## Why this came first
 
-This site needed an address before it could document anything, and the business needed an email identity to go with it. Neither is complicated on its own, but each depends on the one before. The website needs the domain, the mailbox needs the domain’s DNS, and email authentication needs the mailbox to be working first.
+Before I could document anything here, this site needed an address, and I needed a business email identity to go with it. Neither is complicated on its own, but each depends on the one before. The website needs the domain, the mailbox needs the domain’s DNS, and email authentication needs the mailbox to be working first.
 
 ## The three steps
 

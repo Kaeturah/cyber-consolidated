@@ -1,65 +1,63 @@
 ---
-title: Is Intune ready?
+title: Microsoft Intune
 kind: page
 topic: preparing-the-environment
 order: 23
-status: Documented
-summary: "A first look at Intune: the admin centre opens, the service is healthy, and no devices are enrolled yet."
-updated: 2026-10-18
+status: In progress
+summary: "Checking Intune’s starting point, creating a controlled test group, and limiting automatic enrolment to that group. Device enrolment comes next."
+updated: 2026-10-21
 permalink: /identity-before-detection/preparing-the-environment/intune-readiness/
-headline: Intune is reachable. Zero devices are enrolled.
+headline: Building the foundation for device management
 ---
 
-## Why Intune is part of Via Wash
+## Why Via Wash needs it
 
-Via Wash has staff across Management, Finance, HR, Operations, Delivery Team and IT. A realistic environment needs a way to decide how company devices are brought under management, which settings they must meet, and how they stay protected. In this project, that is Intune’s job.
+As Via Wash grows, the company will need a way to manage and protect the computers used by its employees. Someone working in Finance may handle sensitive financial information, while the IT team may need access to administrative tools. Not every employee should have the same access, and devices should not be brought under management without a clear plan.
 
-Knowing who a user is isn’t enough on its own. The next question is whether the device they are using should be trusted, and Intune is where that question starts to be answered.
+Microsoft Intune gives administrators a central place to manage devices, apply settings and security policies, and check whether devices meet the requirements that have been set. Before testing those capabilities, I first needed to understand the state of the Intune environment.
 
-## What the evidence shows
+## Understanding the starting point
 
-Screenshots from 18 October 2026 show the Intune admin centre open and reachable. The dashboard showed an active account and a warning about firewall configuration for new Intune network endpoints. Whether that warning applies to this lab hasn’t been assessed.
+I opened the Microsoft Intune admin centre and reviewed the dashboard and device overview. The dashboard showed that no devices had been enrolled. It also reported no Intune enrolment failures in the previous seven days and no configuration policy errors or conflicts.
 
-The device overview showed **zero devices** on every platform listed. The Windows enrolment options page was also visible. That shows where enrolment will be set up, not that any enrolment setting has been chosen.
+{% include evidence.html title="The Intune dashboard provided the initial view of enrolment and configuration status." where="Microsoft Intune admin centre · Dashboard" image="/assets/evidence/vw-intune-001-dashboard-2026-10-20.png" alt="Intune admin centre dashboard: device enrolment OK with no enrolment failures in the last 7 days, device configuration OK with no policies in error or conflict, and Intune enrolled devices showing 0 for Android, iOS/iPadOS, Linux, macOS, Windows and Windows Mobile." %}
 
-A licence screenshot showed several Intune-related service plans selected as part of E5.
+This gave me a clear starting point: Intune was accessible, but I had not yet demonstrated device enrolment or management.
 
-{% include callout.html title="What this does not prove" text="A selected or available service plan doesn’t mean the capability has been configured, assigned or tested. A dashboard with no errors and no non-compliant devices isn’t evidence that policies work either, because no devices are enrolled for them to apply to." %}
+## Creating a controlled test group
 
-{% include quote.html text="A dashboard with no errors isn’t evidence that policies work when there are no devices for them to apply to." %}
+Rather than enabling automatic enrolment for everyone in the tenant, I created a dedicated Microsoft Entra security group called `VW-Intune-Test-Devices`.
 
-## Current state
+The group gives me a specific target for the Intune test. It means I can control which users are included in the enrolment exercise instead of applying the scope to every user. I set the membership type to **Assigned**, so membership can be managed deliberately, and added my test account to the group.
 
-| Capability | Status | Notes |
-|---|---|---|
-| Intune admin centre access | Documented | Dashboard opened and showed an active account. |
-| Device enrolment | Not demonstrated | No device has been enrolled. |
-| Managed devices | None shown | Zero devices in the captured overview. |
-| Compliance policies and configuration profiles | Not yet evidenced | Nothing to validate until a device is enrolled. |
-| Endpoint security policies | Not yet evidenced | Covered later under endpoint and email security. |
-| Enrolment settings | Needs validation | Options page seen; current settings not yet reviewed. |
+## Configuring automatic enrolment
 
-## Why this matters to Via Wash
+Creating the group was only part of the work. Intune also needed to know which users should be included in automatic mobile device management (MDM) enrolment.
 
-Before any policy can be validated, three things need to be settled: how a device enters management, which user or group it belongs to, and what baseline settings it should meet. The second depends on the identity work. Devices are assigned to users and groups, so Via Wash’s departments need to exist in Entra ID before device management means much.
+When I inspected the Automatic Enrolment settings, the MDM user scope was initially set to **None**. That meant no users were included through this scope. I changed it to **Some** and selected `VW-Intune-Test-Devices`, limiting the intended scope to that group rather than all users.
 
-## Evidence
+I left the Windows Information Protection (WIP) user scope set to **None**, because WIP is not part of this enrolment exercise. After saving, Microsoft Intune displayed a confirmation that the settings had been updated successfully.
 
-These are genuine screenshots from the readiness check. They will be added once each one has been inspected and approved for publication.
+{% include evidence.html title="I limited the MDM enrolment scope to the dedicated Via Wash test group and confirmed that Intune saved the settings successfully." where="Microsoft Intune admin centre · Automatic Enrolment" image="/assets/evidence/vw-intune-002-automatic-enrolment-scope-2026-10-20.png" alt="Intune Automatic Enrolment settings with MDM user scope set to Some and 1 group selected, WIP user scope set to None, and a confirmation message reading Successfully updated Microsoft Intune." %}
 
-{% include evidence.html title="Intune admin centre dashboard" shows="The Intune home page with account status Active, service health and the firewall-endpoint warning." proves="The admin centre was reachable on 18 October 2026." redact="Tenant details, if visible." where="Microsoft Intune admin centre · Home" source="Screenshot 2026-10-18 113809.png" %}
+## Where the project stands
 
-{% include evidence.html title="Device overview showing zero devices" shows="Windows, Apple mobile, macOS, Android and Linux, each with 0 devices." proves="The starting point: nothing was enrolled at the time of capture." redact="Nothing sensitive expected; check before use." where="Microsoft Intune admin centre · Devices" source="Screenshot 2026-10-18 113903.png" %}
+The initial Intune assessment, test-group creation, and Automatic Enrolment configuration are complete. The next stage is to check the suitability of a Windows test device and then determine the appropriate way to test enrolment.
 
-{% include evidence.html title="Windows enrolment options" shows="The Windows enrolment page listing options such as Automatic Enrollment and Windows Autopilot." proves="Where enrolment will be configured. It doesn’t show any setting being chosen." redact="Nothing sensitive expected; check before use." where="Microsoft Intune admin centre · Enrolment" source="Screenshot 2026-10-18 113932.png" %}
+My current computer runs Windows 11 Home, version 26H2. I have recorded this as part of the preparation, but I have not yet enrolled the device. I will only describe enrolment as successful after Intune confirms that a suitable test device has enrolled and appears in the admin centre.
 
-{% include evidence.html title="Intune service plans in the E5 licence" shows="Intune-related service plans selected in the licence details." proves="Only that the plans were selected, not that they are configured or working." redact="The account holder’s name and any account details." where="Microsoft 365 admin centre · Licences and apps" source="Screenshot 2026-10-18 112919.png" %}
+{% include evidence.html title="The computer I recorded during preparation runs Windows 11 Home, version 26H2. It has not been enrolled." where="Windows · About Windows" image="/assets/evidence/vw-intune-003-windows-version-2026-10-20.png" alt="About Windows dialog showing Windows 11, version 26H2 (OS Build 26300.9711), Windows 11 Home." %}
 
-## What comes next
+{% include callout.html title="Current status" text="Initial configuration complete; device enrolment and policy testing remain outstanding." %}
 
-1. Review the current enrolment settings and record them as they are.
-2. Decide which test account and device scenario to use.
-3. Enrol a suitable test device when ready, then record what actually happened.
-4. Document compliance, configuration and endpoint-security work only after the settings have been applied and validated.
+| Work | Status |
+|---|---|
+| Intune dashboard and device overview inspected | Done |
+| VW-Intune-Test-Devices security group created, test account added | Done |
+| Automatic Enrolment MDM user scope set to Some, test group selected | Done |
+| Settings saved and confirmed by Intune; WIP scope left at None | Done |
+| Device enrolment | Not done yet |
+| Configuration policy deployment and validation | Not done yet |
+| Compliance policy testing | Not done yet |
 
-This work continues in [Managing devices with Intune]({{ '/identity-before-detection/managing-devices/' | relative_url }}).
+The enrolment and policy work is next on the [roadmap]({{ '/identity-before-detection/' | relative_url }}#roadmap-intune).

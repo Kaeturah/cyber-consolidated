@@ -11,13 +11,13 @@ permalink: /identity-before-detection/identity-lifecycle/
 short: Lifecycle
 ---
 
-{% include callout.html title="Not started yet" text="This topic sets out the lifecycle design. Each step will be written once the design is agreed and tested." %}
+{% include callout.html title="Not started yet" text="This topic sets out the lifecycle design. Each step will be written up once the design is agreed and tested." %}
 
-## Why the lifecycle matters
+## Why access has to keep changing
 
-Getting access right on someone’s first day is only the start. People change roles, take on extra responsibilities and eventually leave, and access that was right six months ago can be wrong today.
+Getting someone’s access right on their first day is only the start. People change roles, take on extra responsibilities and eventually leave, and access that was right six months ago can be wrong today.
 
-The most common access problems aren’t dramatic hacks. They are a mover who kept their old permissions, or a leaver whose account was never switched off.
+The most common access problems aren’t dramatic hacks. They are quieter: a Finance employee who moved to Operations and kept their Finance access, or a delivery driver who left and whose account was never switched off. Those leftover permissions are exactly what an attacker hopes to find.
 
 ## The three moments
 
@@ -31,6 +31,8 @@ The most common access problems aren’t dramatic hacks. They are a mover who ke
 
 The rule underneath all three: access should match what someone does **now**, not everything they have ever done.
 
-## How it connects
+## Who does what
 
-HR starts each change, IT carries it out, and the groups from the [design]({{ '/identity-before-detection/designing-identity-and-access/' | relative_url }}) do most of the work automatically. To see the joiner process from start to finish, with a real new starter, account, laptop and apps, follow [A new starter’s first day]({{ '/identity-before-detection/a-new-starters-first-day/' | relative_url }}).
+At Via Wash, HR starts each change, because HR knows when someone joins, moves or leaves. IT carries it out. The groups from the [design]({{ '/identity-before-detection/designing-identity-and-access/' | relative_url }}) should do most of the work automatically, so IT changes one detail, such as the department, and access follows.
+
+To see the joiner process from start to finish, with a real new starter, account, laptop and apps, follow [A new starter’s first day]({{ '/identity-before-detection/a-new-starters-first-day/' | relative_url }}). Each step here also becomes a process that [IT support]({{ '/identity-before-detection/it-support-and-operations/' | relative_url }}) can follow.

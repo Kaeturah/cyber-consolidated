@@ -12,4 +12,4 @@ The Microsoft 365 E5 trial is now active. It didn’t go smoothly at first: the 
 
 Today I assigned the first licence and opened the Intune admin centre to record its starting state before changing anything. The account is active, the service is healthy, and zero devices are enrolled on any platform. There is also a warning about firewall configuration for new Intune network endpoints, which I still need to look into.
 
-None of this means anything is configured yet. A licence and a working admin centre are where the work starts, not proof of it. The first real build stage, [identity and access]({{ '/identity-before-detection/building-identity-in-entra-id/' | relative_url }}), comes next.
+None of this means anything is configured yet. A licence and a working admin centre are where the work starts, not proof of it. Identity and access with Entra ID comes next; it is on the [roadmap]({{ '/identity-before-detection/' | relative_url }}#roadmap-entra-id).

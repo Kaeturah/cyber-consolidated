@@ -37,7 +37,7 @@ The screenshots and later DNS checks show that the MX and SPF records the provid
 
 ## DKIM
 
-A DKIM record was added in NameSilo. A live DNS check on 18 October 2026, however, found it under `privateemail.domainkey` rather than the expected `privateemail._domainkey`. The missing underscore matters: receiving servers look the key up at the exact expected name, so as published they won’t find it.
+I added a DKIM record in NameSilo. When I checked the live DNS on 18 October 2026, though, I found it under `privateemail.domainkey` rather than the expected `privateemail._domainkey`. The missing underscore matters: receiving servers look the key up at the exact expected name, so as published they won’t find it.
 
 {% include evidence.html title="The DKIM record as entered" where="NameSilo · DNS records" shows="The NameSilo DNS table with the DKIM TXT record added." proves="A DKIM record was entered, and it shows the record name now being corrected." redact="Consider cropping the long key value; it isn’t needed to make the point." source="Screenshot 2026-10-17 022341.png" %}
 

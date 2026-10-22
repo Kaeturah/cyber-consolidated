@@ -9,24 +9,20 @@ updated: 2026-10-20
 permalink: /identity-before-detection/identity-lifecycle/leavers/
 ---
 
-{% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}
+{% include callout.html title="Not started yet" text="I haven’t done this step yet. This page explains the problem it solves and what I plan to do, and it will be rewritten with the real decisions, configuration and screenshots once the work happens." %}
 
-## What this step is
+## The problem
 
-The process for someone leaving: disabling the account, ending active sessions, removing access and licences, and dealing with their device and files.
+Disabling an account feels like the end of the job, but it often isn’t. A session that was already signed in can keep working for a while. An admin account, an app permission or a device can all outlive the main account if nobody deals with them. A leaver’s access has to be removed properly, not just switched off.
 
-## Why it matters for Via Wash
+## What I plan to do
 
-A disabled account isn’t always the end of access. Existing sessions, admin accounts, app permissions and devices can all outlive it if they aren’t dealt with.
+- Disable the account and revoke any active sessions
+- Remove group memberships, licences and any separate admin accounts
+- Retire or wipe their device
+- Hand ownership of their files and mailbox to the right person
 
-## What will be done
-
-- Disable the account and revoke active sessions
-- Remove group memberships, licences and any admin accounts
-- Retire or wipe the device
-- Transfer ownership of files and mailboxes
-
-## How it will be checked
+## How I’ll know it worked
 
 - A test leaver can no longer sign in anywhere
 - Their device shows as retired

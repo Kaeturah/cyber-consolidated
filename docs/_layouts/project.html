@@ -4,9 +4,6 @@ layout: default
 {% assign docs = site[page.collection] | sort: "order" %}
 {% assign topics = docs | where: "kind", "topic" %}
 {% assign steps_all = docs | where: "kind", "page" %}
-{% assign done_a = steps_all | where: "status", "Documented" | size %}
-{% assign done_b = steps_all | where: "status", "Needs validation" | size %}
-{% assign written = done_a | plus: done_b %}
 
 <header class="page headline">
   <div>
@@ -22,9 +19,9 @@ layout: default
   </div>
   <div>
     <p class="dek">{{ page.summary }}</p>
-    <p class="byline"><span>By {{ site.author }}</span><span>{{ topics | size }} topics</span><span>{{ steps_all | size }} steps</span><span>{{ written }} written so far</span></p>
+    <p class="byline"><span>By {{ site.author }}</span><span>{{ topics | size }} topic{% if topics.size != 1 %}s{% endif %}</span>{% include step-counts.html steps=steps_all %}</p>
     {% assign first_topic = topics | first %}
-    <p class="byline cta-line"><a class="more" href="{{ first_topic.url | relative_url }}">Start here</a></p>
+    <p class="byline cta-line"><a class="more" href="{{ first_topic.url | relative_url }}">Start here</a>{% if page.roadmap %}&nbsp;&nbsp;&nbsp;<a class="more" href="#roadmap">See the roadmap</a>{% endif %}</p>
   </div>
 </header>
 
@@ -37,7 +34,7 @@ layout: default
   <div class="section-head">
     <div>
       <p class="label">The route</p>
-      <h2 id="route-title">Where the build stands</h2>
+      <h2 id="route-title">Where the project stands</h2>
     </div>
   </div>
   {% include build-path.html %}
@@ -77,3 +74,5 @@ layout: default
     {% endfor %}
   </ol>
 </section>
+
+{% if page.roadmap %}{% include roadmap.html %}{% endif %}

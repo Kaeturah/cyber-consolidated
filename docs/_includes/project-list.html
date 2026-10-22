@@ -3,16 +3,12 @@
   {% for p in plist %}
   {% assign p_chapters = site[p.collection] | where: "kind", "page" %}
   {% assign p_topics = site[p.collection] | where: "kind", "topic" | size %}
-  {% assign p_total = p_chapters | size %}
-  {% assign p_a = p_chapters | where: "status", "Documented" | size %}
-  {% assign p_b = p_chapters | where: "status", "Needs validation" | size %}
-  {% assign p_written = p_a | plus: p_b %}
   <li>
     <a class="project-card" href="{{ p.url | relative_url }}">
       <span class="kicker">Project {{ forloop.index }}{% if p.topic %} · {{ p.topic }}{% endif %}</span>
       <span class="project-title">{{ p.title }}</span>
       <span class="project-summary">{{ p.summary }}</span>
-      <span class="byline"><span>{{ p_topics }} topic{% if p_topics != 1 %}s{% endif %}</span><span>{{ p_total }} steps</span><span>{{ p_written }} written so far</span></span>
+      <span class="byline"><span>{{ p_topics }} topic{% if p_topics != 1 %}s{% endif %}</span>{% include step-counts.html steps=p_chapters %}</span>
     </a>
   </li>
   {% endfor %}

@@ -1,0 +1,70 @@
+<section class="page section section--last" id="roadmap" aria-labelledby="roadmap-title">
+  <div class="section-head">
+    <div>
+      <p class="label">Roadmap</p>
+      <h2 id="roadmap-title">Where the project is heading</h2>
+      <p>These are the areas I intend to work through. They are a direction, not documentation: each one gets its own pages only once I have actually done the work and captured the evidence. The order and grouping may change as the project and my learning progress.</p>
+    </div>
+  </div>
+  <ol class="roadmap">
+    <li id="roadmap-entra-id">
+      <p class="roadmap-name">Entra ID and identity management</p>
+      <p class="roadmap-why">Building Via Wash’s users, groups, admin roles and sign-in protection in Entra ID. The planning is written up in <a href="{{ '/identity-before-detection/designing-identity-and-access/' | relative_url }}">Designing identity and access</a> and <a href="{{ '/identity-before-detection/identity-lifecycle/' | relative_url }}">Identity lifecycle</a>, but nothing has been built in Entra ID yet.</p>
+      <p class="roadmap-state">Implementation not started</p>
+    </li>
+    <li id="roadmap-intune">
+      <p class="roadmap-name">Intune and device management</p>
+      <div class="roadmap-why">
+        <p>Bringing Via Wash’s devices under management, so the business knows which devices exist and whether they can be trusted. Details in <a href="{{ '/identity-before-detection/preparing-the-environment/intune-readiness/' | relative_url }}">Microsoft Intune</a>.</p>
+        <p><strong>Done:</strong> initial Intune assessment; <code>VW-Intune-Test-Devices</code> group created and the test account added; automatic MDM enrolment limited to that group, saved and confirmed by Intune.</p>
+        <p><strong>Still to do:</strong> enrol a device; test configuration policies; test compliance policies. Device management has not been validated.</p>
+      </div>
+      <p class="roadmap-state roadmap-state--partial">Partly done · no device enrolled</p>
+    </li>
+    <li id="roadmap-defender">
+      <p class="roadmap-name">Defender and endpoint security</p>
+      <p class="roadmap-why">Protecting managed devices and email, and proving the protection works with safe tests.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-windows">
+      <p class="roadmap-name">Windows configuration</p>
+      <p class="roadmap-why">Preparing a suitable Windows test device and the settings Via Wash’s computers should have.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-on-premises">
+      <p class="roadmap-name">On-premises Active Directory</p>
+      <p class="roadmap-why">The day-to-day IT many companies still run on their own servers, built in a small lab.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-hybrid">
+      <p class="roadmap-name">Hybrid identity</p>
+      <p class="roadmap-why">Connecting on-premises identities to Entra ID, if the lab can support it.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-onboarding">
+      <p class="roadmap-name">A new starter, end to end</p>
+      <p class="roadmap-why">Following one new employee from the HR request to a ready laptop, with access and apps arriving through groups.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-monitoring">
+      <p class="roadmap-name">Monitoring and detection</p>
+      <p class="roadmap-why">Turning sign-ins, device events and alerts into detections that are tested to prove they fire.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-incident-response">
+      <p class="roadmap-name">Incident response</p>
+      <p class="roadmap-why">Investigating and containing safe, simulated incidents across everything built before.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-it-support">
+      <p class="roadmap-name">IT Support &amp; Operations</p>
+      <p class="roadmap-why">A distinct workstream within Via Wash’s IT department: support requests, access approvals, escalation and change records, so the environment stays usable and understandable.</p>
+      <p class="roadmap-state">Not started</p>
+    </li>
+    <li id="roadmap-app-security">
+      <p class="roadmap-name">Application security</p>
+      <p class="roadmap-why">A safe review of the security already built into the Via Wash customer app. The existing work is documented in <a href="{{ '/identity-before-detection/application-security/what-the-app-already-logs/' | relative_url }}">What the app already logs</a>.</p>
+      <p class="roadmap-state">Review outstanding</p>
+    </li>
+  </ol>
+</section>

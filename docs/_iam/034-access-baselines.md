@@ -9,23 +9,21 @@ updated: 2026-10-20
 permalink: /identity-before-detection/designing-identity-and-access/access-baselines/
 ---
 
-{% include callout.html title="Not started yet" text="This step hasn’t been done yet. The page explains what it involves so you can follow along, and it will be rewritten with the real configuration and screenshots once the work happens." %}
+{% include callout.html title="Not started yet" text="I haven’t done this step yet. This page explains the problem it solves and what I plan to do, and it will be rewritten with the real decisions, configuration and screenshots once the work happens." %}
 
-## What this step is
+## The problem
 
-Access in layers: a company-wide baseline that everyone gets, department access on top, and a controlled way to grant exceptions.
+Not all access is about departments. Everyone at Via Wash will need some things, such as email and company-wide information. Each department needs more on top. And now and then someone will need something unusual for a short time.
 
-## Why it matters for Via Wash
+If those three kinds of access are mixed together, nobody can explain why a person has what they have. Layering them keeps it explainable.
 
-Layers make access predictable. If anyone asks why someone can reach something, the answer is a layer, not a mystery.
+## What I plan to decide
 
-## What will be done
+- **The company baseline:** what every employee gets on day one
+- **The department layer:** what each of the six departments adds, for example order systems for Operations or financial records for Finance
+- **Exceptions:** how one-off access is requested, who approves it, and when it ends
 
-- Define the baseline every employee gets, such as email and company-wide files
-- Define what each department adds
-- Define how one-off access is requested, approved and later removed
+## How I’ll know it worked
 
-## How it will be checked
-
-- Each test user’s access can be explained layer by layer
-- Exceptions have an owner and an end date
+- Any test user’s access can be explained layer by layer
+- Every exception has an owner and an end date

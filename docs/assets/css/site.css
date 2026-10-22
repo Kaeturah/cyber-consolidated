@@ -516,6 +516,7 @@ code {
 
 .route .is-done .route-num { color: var(--ink); }
 .route .is-todo .route-num { color: var(--muted); }
+.route .is-plan .route-state { color: var(--ink-2); }
 .route .is-current a { border-top-color: var(--red); }
 .route .is-current .route-state { color: var(--red); font-weight: 600; }
 
@@ -887,3 +888,40 @@ code {
 }
 .route .is-current .route-state { color: var(--red); font-weight: 600; }
 .lead-figure-link { display: none; }
+
+/* ---------- Roadmap ---------- */
+
+.roadmap { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--rule); }
+.roadmap li {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr) 250px;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.roadmap-name { font: 500 1.3rem/1.2 var(--serif); color: var(--ink); }
+.roadmap-why { color: var(--muted); font-size: 0.97rem; }
+.roadmap-why a { color: var(--ink); text-decoration-color: var(--red); text-underline-offset: 3px; }
+.roadmap-why p { margin: 0 0 8px; }
+.roadmap-why p:last-child { margin-bottom: 0; }
+.roadmap-why strong { color: var(--ink); font-weight: 600; }
+.roadmap-why code { font-size: 0.9em; color: var(--ink); }
+.roadmap-state {
+  justify-self: end;
+  align-self: start;
+  margin: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink-2);
+  text-align: right;
+}
+.roadmap-state--partial { border-color: var(--red); color: var(--red); }
+.roadmap li:target { background: var(--soft); outline: 2px solid var(--red); outline-offset: 4px; }
+@media (max-width: 860px) {
+  .roadmap li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .roadmap-state { justify-self: start; text-align: left; margin-top: 8px; }
+}

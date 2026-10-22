@@ -3,37 +3,39 @@ title: The tenant and the E5 licence
 kind: page
 topic: preparing-the-environment
 order: 21
-status: Documented
-summary: Getting the Microsoft 365 E5 trial into the Cyber Consolidated tenant, the problem on the way, and assigning the first licence.
+status: In progress
+summary: Why I started the Microsoft 365 E5 trial, the problem getting it in, and assigning the first licence.
 updated: 2026-10-18
 permalink: /identity-before-detection/preparing-the-environment/tenant-and-e5-licence/
 headline: The environment is ready. Nothing is configured yet.
 ---
 
-## Why this stage matters
+## Why I needed it
 
-Via Wash needs a controlled Microsoft environment where identity, device management and security controls can be explored against a realistic business. The Microsoft 365 E5 trial was started to make the relevant services available for hands-on learning and validation.
+To build Via Wash’s identity, device and security controls properly, I needed a Microsoft environment that has those capabilities, not just a free directory. Conditional Access, Privileged Identity Management, Intune and Defender all come with Microsoft 365 E5, so I started the E5 trial to make them available for hands-on work and testing.
 
 This is a test environment, not a production deployment.
 
-## What was done
+## Getting the trial in
 
-The trial was added through the Microsoft 365 admin centre on 17 October 2026. It didn’t go through first time: the “Try now” button on the checkout page was disabled to begin with. The trial was then added successfully, and the admin centre confirmed that Microsoft 365 E5 (Trial) had been added.
+I added the trial through the Microsoft 365 admin centre on 17 October 2026. It didn’t go through first time. On the first checkout page I tried, the “Try now” button stayed greyed out. The trial went through once I added Microsoft 365 E5 from the admin centre’s Marketplace instead, and the admin centre confirmed that Microsoft 365 E5 (Trial) had been added.
 
-The trial runs for one month, ending on 16 November 2026. One licence was then assigned, so the environment could be explored from a licensed account.
+The trial runs for one month, ending on 16 November 2026. That date matters: any stage that depends on E5 has to fit inside it, or wait for a decision about paying for the licence.
 
-## What it established
+## Giving it to an account
 
-- A product view showed **Microsoft 365 E5 (Trial)** alongside **Microsoft Entra ID Free**.
-- A licensing view showed **25 E5 trial licences**, with **one assigned and 24 available**.
+A licence sitting unassigned doesn’t let anyone use anything. I assigned one licence to the administrator account, so I could open and explore the licensed services from it.
 
-{% include callout.html title="What this does not prove" text="A licence, or a service plan that is visible or selected, doesn’t show that a feature has been configured or tested. This chapter records that the environment exists. Each capability gets its own chapter, written only once real configuration and testing evidence exists." %}
+The admin centre then showed:
+
+- **Microsoft 365 E5 (Trial)** in the product list, alongside **Microsoft Entra ID Free**.
+- **25 E5 trial licences**, with **one assigned and 24 available**.
+
+The 24 spare licences matter later. When I create named test users for each department, I will only license the ones that need to sign in or enrol a device, rather than spending licences on accounts that don’t.
+
+{% include callout.html title="What this does not prove" text="A licence, or a service plan that is visible or selected, doesn’t show that a feature has been configured or tested. This step records that the environment exists. Each service gets its own step, written only once real configuration and testing evidence exists." %}
 
 {% include quote.html text="A licence and a working admin centre are where the work starts, not proof of it." %}
-
-## Why it matters to Via Wash
-
-Several of the [six build stages]({{ '/identity-before-detection/start-here/what-are-we-building/' | relative_url }}) rely on services included in E5, so the trial is a dependency for much of the project rather than a piece of work in its own right. It also sets a time limit: anything that depends on E5 has to fit inside the trial period or wait for a licensing decision.
 
 ## Evidence
 
@@ -49,9 +51,9 @@ These are genuine captures from the setup. They will be added once each one has 
 
 ## Limitations
 
-- This chapter records the trial setup, not a completed security implementation.
+- This step records the trial setup, not a completed security implementation.
 - The screenshots date from 17–18 October 2026. Current licence status and billing terms should be checked directly in the admin centre before any decision relies on them.
 
 ## What comes next
 
-With the licence in place, the next job is to check each service it includes, starting with [Entra ID]({{ '/identity-before-detection/preparing-the-environment/entra-id-readiness/' | relative_url }}).
+With the licence in place, the next job is to check each service it includes. Intune is the first one I’ve documented, in [Microsoft Intune]({{ '/identity-before-detection/preparing-the-environment/intune-readiness/' | relative_url }}). Checking Entra ID, the identity service everything else in Via Wash depends on, is still to do and is on the [roadmap]({{ '/identity-before-detection/' | relative_url }}#roadmap-entra-id).
