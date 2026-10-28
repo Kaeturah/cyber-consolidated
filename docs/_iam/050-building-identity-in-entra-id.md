@@ -1,37 +1,35 @@
 ---
 title: Building identity in Entra ID
-headline: From an identity design to real accounts
+headline: A new starter should not depend on guesswork
 kind: topic
 topic: building-identity-in-entra-id
 order: 50
 status: Planned
-summary: Turn the agreed identity design into a working Entra directory, starting with user accounts and then building on them with groups, roles and authentication.
+summary: Follow a Via Wash employee from the HR request through account creation, group-based access, authentication and the device they will use on their first day.
 updated: 2026-10-28
 permalink: /identity-before-detection/building-identity-in-entra-id/
 short: Entra ID
 ---
 
-## From design to directory
+## A first day at Via Wash
 
-The design work answers who Via Wash needs identities for, how those identities should be named, and how access should follow each person's responsibilities. This topic is where those decisions will be put into practice in Microsoft Entra ID.
+Imagine a new employee is joining the **Operations** team at one of Via Wash’s branches. HR has confirmed the start date. On the first day, the employee needs to sign in, see the information required for their job, and use a prepared device with the right applications.
 
-The order matters. First, understand how a user account is formed and what its fields mean. Then decide how accounts fit into groups and how administrative access is assigned. Authentication and access controls can only be tested meaningfully once the directory has a deliberate structure.
+That outcome depends on several decisions working together. IT needs to know which person the account represents, which department and role they belong to, what group membership should give them, and how their device and applications will be prepared. A user record on its own is only the first link in that chain.
 
-The first user-creation exercise was completed in a separate practice directory as part of Microsoft Learn. It helped make the Entra workflow concrete. It does not mean Via Wash users have been created or configured.
+This topic follows that employee through the identity part of the journey. It starts with a single account, then moves to groups and access, administrative roles, authentication, and checks from the user's point of view. Device enrolment and app installation follow from this identity foundation; they are not implied by creating the account.
 
-## What this topic will build
+## Why the work is split into steps
 
-The work will move from individual identities to the structure around them:
+An account should not be created by copying whatever details happen to be available into a form. The account needs a consistent sign-in name and profile, and the organisation needs a clear rule for how department and job information will lead to access.
 
-1. Create a user and understand the account properties.
-2. Design and create groups that match Via Wash's departments and access needs.
-3. Assign administrative roles carefully, using only the permissions each task requires.
-4. Configure and test authentication controls.
-5. Check the result from the user's perspective and record what the evidence proves.
+For example, an Operations employee may eventually join an Operations access group. That group could become the target for appropriate applications or device policies. For that to happen, the group, its membership rules, and the assignments must first be designed, configured, and tested. Entering “Operations” in a user’s profile does not do those things automatically.
 
-The group work belongs after the user model is understood. Later Microsoft Learn units that continue the same subject will be documented together under the relevant step, while each unit's learning progress remains separately recorded.
+The sequence therefore moves from the person, to the groups and controls around them, then to validation. Learn units that continue one subject will be explained together in the relevant step, while each unit’s learning progress remains separately recorded.
 
-## Explore this topic
+## What exists today
 
-The steps below will grow as the design is implemented and validated. The first records the user-creation lesson and its separate practice exercise; later steps will cover Via Wash's own implementation when it happens.
+The first user-creation exercise was a Microsoft Learn practice exercise in a separate directory. It gave a chance to walk through the Entra form and see the resulting account in a user list. It did not create a Via Wash employee, assign Via Wash access, enrol a device, or install applications.
+
+The pages below show where that exercise fits, and what must be built before the new-starter journey can be demonstrated in the Via Wash test environment.
 

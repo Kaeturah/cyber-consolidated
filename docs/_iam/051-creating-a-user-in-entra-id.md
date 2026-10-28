@@ -1,67 +1,58 @@
 ---
 title: Creating a user in Entra ID
-headline: An account is more than a name and password
+headline: The first step in getting a new colleague ready
 kind: page
 topic: building-identity-in-entra-id
 order: 51
 status: Documented
-summary: A Microsoft Learn exercise walked through the user-creation form, its profile fields and assignments, then confirmed that the new practice account appeared in the directory.
+summary: What the practice user-creation exercise taught me about representing a Via Wash employee—and what still has to happen before that person can work.
 updated: 2026-10-28
 permalink: /identity-before-detection/building-identity-in-entra-id/creating-a-user/
 ---
 
-## Why this step matters
+## The day-one problem
 
-Every later identity decision starts with a user account. Entra needs a sign-in identifier, a display name, and enough profile information to distinguish the person and describe their place in the organisation. The account can also be assigned to groups, administrative roles or an administrative unit during creation.
+An employee is joining Via Wash’s **Operations** department. HR knows who is starting and when; IT has to turn that information into a usable, appropriately limited work account. The employee will eventually need to sign in, use the applications their role requires, and work from a prepared device.
 
-For Via Wash, that information will eventually help IT give a new employee the right access and prepare the right device. The account fields alone do not grant department access: that only happens when a group or another access mechanism is configured to use them.
+That sounds like one onboarding task, but it is a chain. First the identity must describe the right person. Then access needs to be tied to the person’s job, the device needs to be prepared, and the result needs to be checked from the employee’s point of view. This page records only the first learning step in that chain: understanding the new-user workflow. It does not say that Via Wash onboarding has been built.
 
-## What the form taught
+## The exercise and the decisions I noticed
 
-- **User principal name (UPN):** the account's sign-in identifier. It commonly looks like an email address, but it is not automatically a working mailbox address. It must be unique in the directory.
-- **Display name:** the readable name shown in Microsoft interfaces and applications.
-- **Mail nickname:** a mail-related alias value. The form can derive it from the UPN, or the administrator can enter a distinct value.
-- **Properties:** profile details such as a person's name, user type, job title, department and usage location. These make the directory understandable and can support later processes.
-- **Assignments:** the administrator can add the user to existing groups or assign supported roles and administrative units. Those assignments determine access or administrative scope; merely filling in a department field does not.
-- **User type:** a workforce employee is normally represented as a Member. Guest is generally used for an external identity invited to collaborate; the organisation's identity policy determines how contractors are represented.
+I followed Microsoft Learn’s **Create a new user in Microsoft Entra ID** unit in a separate practice directory. In the admin centre, the route was **Identity → Users → All users → New user → Create new user**. The wizard moved through **Basics → Properties → Assignments → Review + create**.
 
-The notes for this exercise identify **User Administrator** as the role needed to create a user. Use a role with sufficient permissions for the task, and avoid using a broad administrator role when a narrower one is enough.
+The first distinction that matters in the Via Wash design is between the **user principal name (UPN)** and **display name**. The UPN is the sign-in identifier; the display name is the human-readable name colleagues see. They serve different purposes, so both need a deliberate check before creation. An email-shaped UPN is not proof that a mailbox exists.
 
-## The practice exercise
+On **Properties**, the department and job title give the directory useful context. For our Operations starter, those values would describe the employee’s actual place in Via Wash. I learned not to treat those fields as access controls: entering “Operations” does not automatically add the account to a group. We will need to design and configure that connection, then test it.
 
-The screenshots follow the Entra **Create new user** workflow through Basics, Properties, Assignments and Review + create. The Assignments page showed no assignments. The final capture then showed one user in the directory's user list.
+The **Assignments** screen made that gap visible. It offered a way to attach existing groups and supported roles, but the practice account had no assignments. I had initially thought about groups and roles as part of creating the account; the exercise clarified that the choices only work when the right groups and role model already exist. That is why the group-design work belongs next, before we try to demonstrate role-based access for Via Wash.
 
-This was a learning exercise in a separate practice directory. It is useful evidence of the form and the result of that exercise, but it is not a Via Wash account or a test of Via Wash access.
+For the employee scenario, the intended user type is **Member** because this is an internal workforce identity. An external collaborator is generally represented as a Guest, subject to the organisation’s policy. The notes for this exercise identify **User Administrator** as the role needed to create a user; this is a learning point, not evidence that I changed or assigned an administrative role in Via Wash.
 
-## What the evidence establishes
+## What the practice result establishes
 
-The final user-list capture supports that the account was created and appeared in the directory. The earlier captures show which fields were reviewed and that no groups or roles were assigned during this exercise.
+The account appeared in the practice directory’s user list after the creation flow. The Assignments screenshot showed no group or role attached through that screen. Together, those captures support that the practice account was created and show what was selected in the wizard.
 
-It does not show that the account successfully signed in, received application access, or was governed by a joiner process. It also does not establish that the same configuration exists in the Via Wash test environment.
+They do not show a Via Wash account, successful sign-in, access to an application, automatic group membership, device enrolment, or a completed joiner process. Those are separate outcomes we will need to implement and validate in the Via Wash test environment.
 
-{% include evidence.html title="Basics tab in the Entra user-creation form" where="Microsoft Entra admin centre · Create new user · Basics" shows="The account identifier and initial account settings are entered in the first step." proves="The form was reached and the Basics step was reviewed; it does not establish a successful sign-in." %}
+## Evidence from the exercise
 
-{% include evidence.html title="User profile properties" where="Microsoft Entra admin centre · Create new user · Properties" shows="The form's identity and job-information fields, including department and job title." proves="These are profile fields. They do not grant group membership or access by themselves." %}
+The original screenshots contain personal account details. I have left a separate, labelled space for each one so the page does not present a tight block of images; approved, redacted copies can be added when available.
 
-{% include evidence.html title="Assignments before creation" where="Microsoft Entra admin centre · Create new user · Assignments" shows="No group, role or administrative-unit assignments were listed for this exercise." proves="The account was not assigned those items through this screen; it does not prove anything about access granted elsewhere." %}
+{% include evidence.html title="Basics: sign-in name and display name" where="Practice directory · Create new user · Basics" shows="The two identity labels and the initial account settings in the form." proves="The Basics step was reviewed; it does not establish that the account could sign in." %}
 
-{% include evidence.html title="Reviewing the new account before creation" where="Microsoft Entra admin centre · Create new user · Review + create" shows="The account details gathered across the earlier steps are reviewed before submission." proves="The review screen was reached; the following user-list capture is the evidence that creation completed." %}
+{% include evidence.html title="Properties: where the employee belongs" where="Practice directory · Create new user · Properties" shows="The profile fields for identity, department and job information." proves="These fields describe the user; they do not grant group membership or access by themselves." %}
 
-{% include evidence.html title="The user appears in the directory" where="Microsoft Entra admin centre · Users · All users" shows="One user is listed after the creation workflow." proves="The account object appeared in the directory at capture time; it does not prove sign-in or access tests." %}
+{% include evidence.html title="Assignments: no access was attached here" where="Practice directory · Create new user · Assignments" shows="The assignment step with no groups or roles selected." proves="No assignment was made through this screen in the exercise." %}
 
-## Knowledge review
+{% include evidence.html title="Review + create: checking before submission" where="Practice directory · Create new user · Review + create" shows="The entered account details at the final review step." proves="The review step was reached; the user-list capture below supports that creation followed." %}
 
-We reviewed the lesson together after looking at the screenshots. The main points were:
+{% include evidence.html title="Result: the account appears in the directory" where="Practice directory · Users · All users" shows="The new practice account listed after creation." proves="The account object appeared in that practice directory at capture time, not that it signed in or received access." %}
 
-- The UPN identifies the sign-in account; the display name is the human-readable label.
-- Department and job title belong in the user's properties, but those attributes need a configured rule or process before they affect group membership or access.
-- The Assignments step can add a user to an existing group or assign a role. No assignments were present in this exercise.
-- An internal Via Wash employee would normally be a Member. Guest is generally for an external collaborator, subject to the organisation's policy.
-- The specific least-privilege administrative role in the notes is User Administrator.
+## Learning reference
 
-This was a guided review of the concepts, not a recorded Microsoft Learn assessment result. The saved learning note does not identify the module name or confirm the official knowledge-check completion, so those details remain to be checked in Microsoft Learn.
+This exercise is the **“Create a new user in Microsoft Entra ID”** unit in Microsoft Learn’s [Manage security controls for identity and access](https://learn.microsoft.com/en-us/training/modules/manage-security-controls-identity-access/) module. That module contains 51 units. The walkthrough and our discussion helped me understand the form; the official module assessment result is not recorded, so I am not marking the knowledge check complete.
 
-## What comes next
+## The next link in the chain
 
-This page records the user-creation lesson before moving on. The next connected work will be group design and creation: first deciding how Via Wash's departments and job responsibilities should be represented, then building and testing those groups in the Via Wash environment.
+Before creating Via Wash accounts, I need to settle what department and job information mean, which groups represent access, and who is allowed to administer those groups. The next connected topic is [designing identity and access]({{ '/identity-before-detection/designing-identity-and-access/' | relative_url }}); the user’s department-to-group relationship will be considered there before implementation. Later, we can follow the same Operations starter through group assignment, authentication, device preparation, app availability, and a real validation check.
 

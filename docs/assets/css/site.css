@@ -308,7 +308,18 @@ code {
 
 /* ---------- Figures ---------- */
 
-.prose > .fig { grid-column: wide; margin-top: 2.4em; margin-bottom: 0.6em; }
+.prose .fig {
+  display: block;
+  grid-column: wide;
+  margin: 2.8em 0 1.4em;
+}
+
+/* Liquid evidence includes can sit inside a paragraph after Markdown parsing.
+   Give that wrapper the same breathing room and width as the figure itself. */
+.prose > p:has(> .fig) {
+  grid-column: wide;
+  margin: 2.8em 0 1.4em;
+}
 
 .fig-frame {
   position: relative;
