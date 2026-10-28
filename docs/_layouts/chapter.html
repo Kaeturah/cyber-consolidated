@@ -34,7 +34,7 @@ layout: default
     </div>
     <div>
       <p class="dek">{{ page.summary }}</p>
-      <p class="byline"><span>By {{ site.author }}</span><span>{% include progress.html doc=page %}</span><span>{% include read-time.html text=content %}</span></p>
+      <p class="byline"><span>By {{ site.author }}</span>{% if page.kind == "topic" %}<span>{% include progress.html doc=page %}</span>{% endif %}<span>{% include read-time.html text=content %}</span></p>
     </div>
   </header>
 
