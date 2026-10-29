@@ -18,22 +18,13 @@ I used **Sarah Eze** as a test identity for that scenario and created her accoun
 
 ## The account I created
 
-| Entra field | Value entered | Why it matters to the onboarding scenario |
-|---|---|---|
-| Sign-in name | `sarah.eze` with the tenant domain redacted | Identifies the account at sign-in. The screenshot does not establish a Via Wash custom email domain or mailbox. |
-| Display name | Sarah Eze | The name colleagues see in Microsoft 365. |
-| User type | Member | Sarah represents an internal Via Wash employee. |
-| Job title | Store Assistant | Describes the work she is joining to do. |
-| Company name | Via Wash | Associates the test identity with the business scenario. |
-| Department | **Store Operations** | This is what I entered. It does not match the agreed department name, **Operations**, and needs correcting before I use the account to test group rules. |
-| Employee ID | `VW-EMP-001` | A test identifier for the scenario. |
-| Employee type | Employee | Records the workforce relationship. |
-| Office location | London - Stratford Branch | The branch is a location; it is not a seventh department. |
-| Employee hire date / manager | Left blank | I did not invent a hire date or reporting line. |
-
-The screenshot shows a real mismatch to fix: the approved department is **Operations**, but the Entra record currently says **Store Operations**. The branch belongs in **Office location**. I have not changed the Entra account in this documentation task, so the evidence records the value that was actually saved. I need to correct it in the test tenant before using Sarah to validate department-based membership.
+On the **Basics** page, I entered `sarah.eze` as the sign-in name and **Sarah Eze** as the display name. The tenant part of the UPN is redacted in the screenshot. The display name is what colleagues will see; the UPN is what Sarah will use to sign in. An email-shaped sign-in name does not prove that a mailbox exists. I left the mail nickname derived from the UPN, kept the account enabled and selected Entra’s auto-generated password option. The password itself is masked and is not recorded here.
 
 {% include evidence.html title="Basics · Sarah’s sign-in and display names" where="Via Wash test tenant · Create new user · Basics" image="/assets/evidence/vw-entra-001-create-user-basics-2026-10-29.png" alt="Create new user Basics tab for test identity Sarah Eze. The UPN tenant domain is redacted and the generated password is masked." shows="The UPN begins sarah.eze, the display name is Sarah Eze, the password is auto-generated and the account is enabled." proves="The Basics details entered for this test user; it does not prove that Sarah signed in or that a mailbox exists." %}
+
+On **Properties**, I set Sarah’s user type to **Member**, because she represents an internal Via Wash employee. Her job title is **Store Assistant**, the company name is **Via Wash**, the employee type is **Employee**, and the test employee ID is `VW-EMP-001`. I left the hire date and manager blank rather than making up HR details.
+
+The branch is recorded as **London - Stratford Branch** under **Office location**. It is a place where Operations work happens, not another department. There is one value I need to fix: I entered **Store Operations** in the Department field, but the agreed business department is **Operations**. I have not changed the Entra account, so the screenshot records what was actually saved. I need to correct that value before using Sarah to test department-based group membership.
 
 {% include evidence.html title="Properties · the employee record" where="Via Wash test tenant · Create new user · Properties" image="/assets/evidence/vw-entra-002-create-user-properties-2026-10-29.png" alt="Properties tab showing Sarah Eze as a Member and Employee, Store Assistant at Via Wash, department Store Operations, employee ID VW-EMP-001, and London - Stratford Branch as office location." shows="The workforce attributes entered for the test identity. The hire date and manager are blank." proves="These values were entered in the user profile; the department value needs to be corrected to Operations before group-rule testing." %}
 
