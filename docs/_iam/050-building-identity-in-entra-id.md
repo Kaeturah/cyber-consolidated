@@ -4,9 +4,9 @@ headline: A new starter should not depend on guesswork
 kind: topic
 topic: building-identity-in-entra-id
 order: 50
-status: Planned
-summary: Follow a Via Wash employee from the HR request through account creation, group-based access, authentication and the device they will use on their first day.
-updated: 2026-10-28
+status: In progress
+summary: Follow a Via Wash employee from the HR request into Entra, then build and test the groups, authentication and device setup that make the account useful.
+updated: 2026-10-29
 permalink: /identity-before-detection/building-identity-in-entra-id/
 short: Entra ID
 ---
@@ -27,9 +27,11 @@ For example, an Operations employee may eventually join an Operations access gro
 
 The sequence therefore moves from the person, to the groups and controls around them, then to validation. Learn units that continue one subject will be explained together in the relevant step, while each unit’s learning progress remains separately recorded.
 
-## What exists today
+## The first test account is in Entra
 
-The first user-creation exercise was a Microsoft Learn practice exercise in a separate directory. It gave a chance to walk through the Entra form and see the resulting account in a user list. It did not create a Via Wash employee, assign Via Wash access, enrol a device, or install applications.
+I have created Sarah Eze as a test user in the Via Wash test tenant. The account appears in Entra, and the creation screenshots show the values entered. It has no group or role assignments, and I have not tested sign-in, application access, device enrolment or app deployment.
 
-The pages below show where that exercise fits, and what must be built before the new-starter journey can be demonstrated in the Via Wash test environment.
+The account’s Department field currently says **Store Operations**. Via Wash’s agreed department name is **Operations**, so I need to correct that value before using Sarah to test department-based group membership. The [user-creation page]({{ '/identity-before-detection/building-identity-in-entra-id/creating-a-user/' | relative_url }}) documents the account and that correction.
+
+The next work is to decide what Sarah needs for her Store Assistant role, build the groups and membership rules, then check whether access follows the design. Only after identity and access behave as expected will this scenario move on to authentication, device setup and applications.
 

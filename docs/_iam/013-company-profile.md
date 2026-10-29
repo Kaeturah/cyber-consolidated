@@ -5,10 +5,10 @@ topic: start-here
 order: 13
 status: In progress
 summary: The departments, functions and locations that shape every access, device and security decision Via Wash makes.
-updated: 2026-10-18
+updated: 2026-10-29
 permalink: /identity-before-detection/start-here/company-profile/
 headline: Six departments, and what each needs from IT.
-status_note: Departments are defined. Named test identities will be created during the Entra ID build.
+status_note: Departments are defined. One test identity now exists in the Via Wash test tenant; its department value needs correcting before group testing.
 ---
 
 ## Why the organisation comes first
@@ -55,6 +55,10 @@ Splitting IT into functions matters for access. Admin roles can then be given on
 
 Customers sign in to the Via Wash app, not to the company’s Microsoft environment. Their accounts are handled by the app’s own authentication and kept apart from staff identities. Staff and customers bring different risks and need different rules, so keeping them separate is a deliberate design decision rather than an accident of two systems.
 
-## People we will follow
+## The first test identity
 
-{% include callout.html title="Still to come" text="Named test identities for each department will be created during the identity work. They will be listed here once they exist in the test environment, along with the roles and access each one is meant to have." %}
+I created **Sarah Eze** as a test identity in the Via Wash Entra test tenant. Sarah represents a new **Store Assistant** joining the business at the London - Stratford Branch. The account is a Member and is marked as an Employee; it is a test record, not a production employee.
+
+One detail needs correcting before this identity is used to test access: the account’s Department field currently says **Store Operations**, while Via Wash’s agreed department name is **Operations**. The branch belongs in Office location. I have recorded the discrepancy in the [user-creation walkthrough]({{ '/identity-before-detection/building-identity-in-entra-id/creating-a-user/' | relative_url }}), alongside the creation and user-list screenshots.
+
+The account has no group or directory-role assignments yet. That is expected at this point: the group design comes first. As other test identities are created, I’ll record the department, role, intended access and test result here, without treating the test accounts as real staff.

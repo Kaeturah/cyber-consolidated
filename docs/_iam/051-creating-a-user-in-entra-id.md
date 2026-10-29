@@ -1,62 +1,65 @@
 ---
 title: Creating a user in Entra ID
-headline: The first step in getting a new colleague ready
+headline: Sarah’s first day at Stratford
 kind: page
 topic: building-identity-in-entra-id
 order: 51
 status: Needs validation
-summary: I worked through Entra’s new-user flow and used it to see what needs deciding before I create a Via Wash employee account.
-updated: 2026-10-28
+summary: I created a Via Wash test user and followed the details from the HR scenario into Entra. The record is there; the onboarding process still needs work.
+updated: 2026-10-29
 permalink: /identity-before-detection/building-identity-in-entra-id/creating-a-user/
 ---
 
-## An Operations starter is waiting for access
+## The HR request
 
-Imagine HR tells IT that someone is joining Via Wash’s **Operations** department at a London branch. On their first shift, they’ll need to sign in, use the systems their role requires and work from a prepared device.
+When a new person joins Via Wash, HR needs to tell IT who they are, what job they are doing and where they will work. IT turns that request into an account, then makes sure the account receives only the access and tools needed for that job.
 
-That starts before anyone opens Entra. HR has to tell IT who the employee is and what they’ll do. IT has to turn that into an account people can recognise, then connect the person to the right access. A name in a directory is not the same thing as a ready employee.
+I used **Sarah Eze** as a test identity for that scenario and created her account in the Via Wash test tenant. Sarah is a test user, not a production employee. The screenshots below follow the account through the actual Entra creation flow.
 
-I haven’t built this onboarding process in Via Wash yet. I used a separate practice directory to work through the Entra form and find out which decisions I need to make before I do.
+## The account I created
 
-## Give the account the right name
+| Entra field | Value entered | Why it matters to the onboarding scenario |
+|---|---|---|
+| Sign-in name | `sarah.eze` with the tenant domain redacted | Identifies the account at sign-in. The screenshot does not establish a Via Wash custom email domain or mailbox. |
+| Display name | Sarah Eze | The name colleagues see in Microsoft 365. |
+| User type | Member | Sarah represents an internal Via Wash employee. |
+| Job title | Store Assistant | Describes the work she is joining to do. |
+| Company name | Via Wash | Associates the test identity with the business scenario. |
+| Department | **Store Operations** | This is what I entered. It does not match the agreed department name, **Operations**, and needs correcting before I use the account to test group rules. |
+| Employee ID | `VW-EMP-001` | A test identifier for the scenario. |
+| Employee type | Employee | Records the workforce relationship. |
+| Office location | London - Stratford Branch | The branch is a location; it is not a seventh department. |
+| Employee hire date / manager | Left blank | I did not invent a hire date or reporting line. |
 
-In Entra, the sign-in name and the display name do different jobs. The **user principal name (UPN)** is how the person signs in. The **display name** is the person’s name colleagues should see. I need both to be right, and I must not assume that an email-shaped UPN means a mailbox is working.
+The screenshot shows a real mismatch to fix: the approved department is **Operations**, but the Entra record currently says **Store Operations**. The branch belongs in **Office location**. I have not changed the Entra account in this documentation task, so the evidence records the value that was actually saved. I need to correct it in the test tenant before using Sarah to validate department-based membership.
 
-For Via Wash, I still need to confirm the sign-in naming rule and domain for staff accounts. The Cyber Consolidated business email belongs to the portfolio project; it isn’t a Via Wash employee account.
+{% include evidence.html title="Basics · Sarah’s sign-in and display names" where="Via Wash test tenant · Create new user · Basics" image="/assets/evidence/vw-entra-001-create-user-basics-2026-10-29.png" alt="Create new user Basics tab for test identity Sarah Eze. The UPN tenant domain is redacted and the generated password is masked." shows="The UPN begins sarah.eze, the display name is Sarah Eze, the password is auto-generated and the account is enabled." proves="The Basics details entered for this test user; it does not prove that Sarah signed in or that a mailbox exists." %}
 
-{% include evidence.html title="Basics · choose the sign-in name and display name" where="Practice directory · Create new user · Basics" shows="The sign-in name, display name and account settings in the form." proves="I reached and reviewed the Basics step; it does not show a successful sign-in." %}
+{% include evidence.html title="Properties · the employee record" where="Via Wash test tenant · Create new user · Properties" image="/assets/evidence/vw-entra-002-create-user-properties-2026-10-29.png" alt="Properties tab showing Sarah Eze as a Member and Employee, Store Assistant at Via Wash, department Store Operations, employee ID VW-EMP-001, and London - Stratford Branch as office location." shows="The workforce attributes entered for the test identity. The hire date and manager are blank." proves="These values were entered in the user profile; the department value needs to be corrected to Operations before group-rule testing." %}
 
-## Put the employee in the right part of Via Wash
+## What happened to access?
 
-The **Properties** page is where the directory records details such as department and job title. For this starter, the department is Operations. The job title should describe the actual job, using the wording Via Wash agrees to use consistently.
+The **Assignments** tab lets IT add a new account to existing groups or assign directory roles and administrative units. Sarah had none selected. That was the right result for this first pass: we have not designed and created the Via Wash groups yet, so there was no approved Operations group to assign.
 
-That consistency will matter when I build group rules. If a future rule matches a department or title, a different spelling or an unapproved title could leave the employee out. The rules don’t exist yet, so the profile fields won’t grant access by themselves.
+The outcome also shows why filling in a department is not enough. Later, a membership rule or onboarding workflow can connect agreed employee attributes to the right groups. Until that rule exists and is tested, Sarah does not automatically receive department access just because her profile says Store Operations—or Operations.
 
-This is an internal Via Wash employee, so the intended account type is **Member**. **Guest** is generally used for an external collaborator. The administrator creating the account needs the **User Administrator** role; that permission belongs to IT, not to the new employee.
+{% include evidence.html title="Assignments · no groups or roles selected" where="Via Wash test tenant · Create new user · Assignments" image="/assets/evidence/vw-entra-003-create-user-assignments-2026-10-29.png" alt="Assignments tab states No assignments to display. Add administrative unit, Add group and Add role are available." shows="No group, directory role or administrative unit was selected during creation." proves="The creation workflow made no assignments on this screen; it does not test group rules or access elsewhere." %}
 
-{% include evidence.html title="Properties · record the employee’s department and job" where="Practice directory · Create new user · Properties" shows="The identity and job-information fields available for a new user." proves="These fields describe an account; they do not create access rules or add the person to a group." %}
+## Review, create, then check the result
 
-## Access comes from groups we have designed
+I checked the values on **Review + create** and submitted the account. Entra confirmed that Sarah Eze was created, and the Users list then showed her as a Member. That proves the test account exists in the Via Wash tenant. I have not yet tested a sign-in, application access, group membership, device enrolment or app deployment for Sarah.
 
-On the **Assignments** page, an administrator can add the new account to existing groups or assign a directory role. My practice account had no assignments. That was useful to see: Entra can attach a group here, but it can’t choose the right Via Wash group until we have designed one.
+{% include evidence.html title="Review + create · the values before submission" where="Via Wash test tenant · Create new user · Review + create" image="/assets/evidence/vw-entra-004-create-user-review-2026-10-29.png" alt="Review + create page summarising Sarah Eze's UPN with the tenant portion redacted, Member account type, job title, company, department, employee ID and Stratford Branch location. No assignments are listed." shows="The final account details and empty assignment sections before selecting Create." proves="The form was ready for submission; the success notification below confirms creation." %}
 
-You’ve said that the future process should use the employee’s department and job to put them in the right groups. That can be built with an agreed membership rule or another onboarding workflow; filling in the profile alone won’t do it. We need to decide what an Operations employee should reach, create the groups, and test that the membership and access are correct before we rely on it.
+{% include evidence.html title="Entra confirms that Sarah Eze was created" where="Via Wash test tenant · Create new user · confirmation notification" image="/assets/evidence/vw-entra-005-create-user-success-2026-10-29.png" alt="Microsoft Entra notification: Successfully created user. Successfully created user Sarah Eze." shows="A successful user-creation confirmation." proves="Entra accepted the create request; it does not demonstrate sign-in or access." %}
 
-{% include evidence.html title="Assignments · no group or role selected" where="Practice directory · Create new user · Assignments" shows="The assignment choices before the practice account was created; none were selected." proves="No group or role was added through this step for that practice account." %}
+{% include evidence.html title="Sarah appears in All users" where="Via Wash test tenant · Users · All users" image="/assets/evidence/vw-entra-006-user-list-2026-10-29.png" alt="All users list with Sarah Eze shown as a Member; her UPN and another user's details are redacted." shows="Sarah Eze appears in the tenant’s user list as a Member." proves="The account object is present in the directory at capture time; no sign-in or application-access test is shown." %}
 
-## Check what was created
+The supplied screenshots have the tenant domain, password and unrelated account details masked. I have kept those redactions intact. Sarah and `VW-EMP-001` are the test identity used for this Via Wash scenario.
 
-The **Review + create** page let me look over the account details before submitting them. After creation, the account appeared in the practice directory’s user list. That confirms the practice account object was created there. It doesn’t show a successful sign-in or prove access to an application.
+## The next onboarding step
 
-{% include evidence.html title="Review + create · check the details before submission" where="Practice directory · Create new user · Review + create" shows="The final review of the account details." proves="I reached the review step; the user list below is the evidence that creation followed." %}
+The immediate correction is to set Sarah’s Department to **Operations** in Entra and capture that corrected value. Then I can design the department and job groups, decide whether dynamic membership is appropriate, and test what Sarah receives. Only after identity and membership are right can I follow her through the next parts of the first-day scenario: authentication, a managed device, and the applications an Operations Store Assistant needs.
 
-{% include evidence.html title="The account appears in the practice directory" where="Practice directory · Users · All users" shows="The new account listed after the creation flow." proves="The account object appeared in the separate practice directory; it is not a Via Wash account or sign-in test." %}
-
-The screenshots are from the practice directory and contain personal account details. I haven’t put the unredacted originals on the public site. I’ll replace these labelled spaces with the genuine screenshots after they’ve been redacted.
-
-## What I’m learning, and what I’ll do next
-
-I worked through Microsoft Learn’s [Create a new user in Microsoft Entra ID](https://learn.microsoft.com/en-us/training/modules/manage-security-controls-identity-access/5-create-new-user) unit. It is part of the 51-unit **Manage security controls for identity and access** module. We reviewed the concepts together, but I haven’t recorded the module knowledge-check result as complete.
-
-The next business question is what an Operations employee should be able to use on day one. I’ll work through [Secure Microsoft Entra groups](https://learn.microsoft.com/en-us/training/modules/manage-security-controls-identity-access/6-secure-microsoft-entra-groups) alongside the [Via Wash identity and access design]({{ '/identity-before-detection/designing-identity-and-access/' | relative_url }}). Once the group model is clear, I can create it, add a test user, and check whether access follows the job as intended.
+The walkthrough follows Microsoft Learn’s [Create a new user in Microsoft Entra ID](https://learn.microsoft.com/en-us/training/modules/manage-security-controls-identity-access/5-create-new-user) unit in the 51-unit **Manage security controls for identity and access** module. The next related unit is [Secure Microsoft Entra groups](https://learn.microsoft.com/en-us/training/modules/manage-security-controls-identity-access/6-secure-microsoft-entra-groups). I reviewed the user-creation concepts, but the module knowledge-check result is still unrecorded. The wider decisions belong in the [Via Wash identity and access design]({{ '/identity-before-detection/designing-identity-and-access/' | relative_url }}).
 

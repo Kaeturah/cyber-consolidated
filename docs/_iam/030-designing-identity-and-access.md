@@ -6,7 +6,7 @@ topic: designing-identity-and-access
 order: 30
 status: Planned
 summary: "Before any account is created: the principles, identity types, naming, groups and access levels that the Entra ID build will follow."
-updated: 2026-10-20
+updated: 2026-10-29
 permalink: /identity-before-detection/designing-identity-and-access/
 short: Design
 ---
@@ -18,6 +18,8 @@ short: Design
 It would be quick to open Entra ID and start creating accounts for Via Wash. But accounts created without a plan tend to collect permissions nobody can explain. Six months later, nobody remembers why someone in Operations can see payroll, or why an old test account still has admin rights.
 
 Via Wash makes the risk concrete. Finance holds payments and payroll. HR holds employee records. Operations runs the orders and branches. Delivery staff work from phones on the road. Each department needs different things, and some of what Finance and HR hold would cause real harm in the wrong hands. If I don’t design access first, I will end up granting it person by person, and that is exactly how permissions drift.
+
+I have already created one test account while learning the Entra user-creation flow. It has no group or role assignments, and its Department field says **Store Operations** instead of the agreed **Operations**. I’m recording that as a test account to correct, not using it as the access design. The [Sarah Eze walkthrough]({{ '/identity-before-detection/building-identity-in-entra-id/creating-a-user/' | relative_url }}) shows what is in the tenant; this topic still needs to decide what access an Operations employee should receive.
 
 ## The principles I’m designing to
 
